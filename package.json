@@ -2,6 +2,7 @@
   "name": "base-elements",
   "version": "1.0.0",
   "description": "This contains styled web components that are used to create websites",
+  "repository": "https://github.com/ewized/base-elements",
   "private": false,
   "dependencies": {
     "css-loader": "^3.2.0",
@@ -11,6 +12,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.6.4",
+    "@babel/plugin-proposal-optional-chaining": "^7.6.0",
     "@babel/plugin-proposal-class-properties": "^7.5.5",
     "@babel/plugin-proposal-decorators": "^7.6.0",
     "@babel/preset-env": "^7.6.3",
