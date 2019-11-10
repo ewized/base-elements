@@ -27,3 +27,8 @@ noscript {
 noscript code {
   font-size: 14px;
 }
+
+.container {
+  margin: 10px;
+  padding: 10px;
+}

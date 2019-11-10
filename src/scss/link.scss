@@ -1,0 +1,19 @@
+@import './theme.scss';
+
+a {
+  color: $text-color;
+  text-decoration: none;
+
+  &:visited {
+    color: $text-color;
+  }
+
+  &:hover {
+    color: #000;
+  }
+
+  &:active, &:focus {
+    color: #111;
+    border-bottom: 1px dotted #111;
+  }
+}

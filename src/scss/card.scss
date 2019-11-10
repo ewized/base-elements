@@ -1,0 +1,16 @@
+@import './theme.scss';
+
+e-paper {
+  h3 {
+    background-color: #ededed;
+    margin: 0;
+    padding: 5px 10px;
+    font-size: 18px;
+    border-bottom: 1px solid $paper-border-color;
+    color: $text-primary-color;
+  }
+
+  > div {
+    padding: 10px;
+  }
+}

@@ -1,0 +1,27 @@
+@import './theme.scss';
+
+a {
+  padding: 5px 10px;
+  color: #eee;
+  text-decoration: none;
+  background-color: #337ab7;
+  border: 1px solid #2e6da4;
+  display: inline-block;
+  font-size: 14px;
+  white-space: nowrap;
+
+  &:visited {
+    color: #eee;
+  }
+
+  &:hover {
+    background-color: #286090;
+    border-color: #204d74;
+  }
+
+  &:active, &:focus {
+    color: #fff;
+    background-color: #1972b3;
+    border-color: #1d84cf;
+  }
+}

@@ -2,27 +2,30 @@
 <html lang="en-us">
 
 <head>
-  <title>Template Site</title>
+  <title>Base Elements</title>
   <meta charset="utf-8">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
-  <meta name="description" content="Site to be used as a template for creating web apps.">
-  <meta name="viewport" content="width=device-width, initial-scale=0.9, user-scalable=no, shrink-to-fit=no">
-  <meta name="theme-color" content="#123">
-  <link rel="manifest" type="application/manifest+json" href="/manifest.json">
+  <meta name="description" content="This is used to demo the web components">
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, shrink-to-fit=no">
+  <meta name="theme-color" content="#567">
   <link rel="stylesheet" href="css/style.css">
   <link rel="icon" href="favicon.ico">
-  <script type="module" src="assets/app.bundle.js" defer></script>
-  <script type="text/javascript" src="js/script.js" defer></script>
-  <script type="text/javascript" src="js/boilerplate.js"></script>
+  <script type="module" src="assets/base_elements.bundle.js" defer></script>
 </head>
 
 <body>
-  <x-app>
-    <h1 class="loading-spinner">Loading...</h1>
-    <noscript>
-      Error: <code>Javascript needs to be enabled</code>
-    </noscript>
-  </x-app>
+  <div class="container">
+    <e-paper>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam quis ex dapibus, auctor nisi quis, ornare sapien. Sed sit amet placerat augue. Quisque accumsan ultricies justo. Fusce aliquet arcu ut mi luctus facilisis. Donec luctus est sem, blandit pellentesque dui sodales ac. Donec aliquet quam maximus magna egestas auctor. Etiam id neque sed lacus aliquet suscipit. Donec sit amet purus vitae tellus aliquet bibendum id sit amet metus. Nulla facilisi.</e-paper>
+  </div>
+  <div class="container">
+    <e-card header="Header With Very Long Text To Test Text Overflow Ellipsis">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam quis ex dapibus, auctor nisi quis, ornare sapien. Sed sit amet placerat augue. Quisque accumsan ultricies justo. Fusce aliquet arcu ut mi luctus facilisis. Donec luctus est sem, blandit pellentesque dui sodales ac. Donec aliquet quam maximus magna egestas auctor. Etiam id neque sed lacus aliquet suscipit. Donec sit amet purus vitae tellus aliquet bibendum id sit amet metus. Nulla facilisi.</e-card>
+  </div>
+  <div class="container">
+    <e-link link="https://www.year4000.net/">www.year4000.net</e-link>
+  </div>
+  <div class="container">
+    <e-button link="https://www.year4000.net/">www.year4000.net</e-button>
+  </div>
 </body>
 
 </html>

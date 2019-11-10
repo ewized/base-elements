@@ -4,7 +4,7 @@ module.exports = {
   mode: 'production',
   devtool: 'inline-source-map',
   entry: {
-    app: './src/js/app.js',
+    base_elements: './src/index.js',
   },
   output: {
     path: path.resolve(__dirname, 'docs/assets'),

@@ -1,12 +1,11 @@
 {
-  "name": "stream-deck",
+  "name": "base-elements",
   "version": "1.0.0",
-  "description": "",
-  "private": true,
+  "description": "This contains styled web components that are used to create websites",
+  "private": false,
   "dependencies": {
     "css-loader": "^3.2.0",
     "lit-element": "^2.2.1",
-    "lodash": "^4.17.15",
     "node-sass": "^4.13.0",
     "sass-loader": "^8.0.0"
   },
