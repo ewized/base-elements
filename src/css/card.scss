@@ -1,0 +1,25 @@
+@use 'theme';
+
+div {
+  background-color: #fff;
+  color: #101010;
+  margin: 10px;
+  padding: 10px;
+  border: 1px solid #ededed;
+
+  &:hover {
+    background-color: #bebebe;
+    color: #fff;
+  }
+
+  a {
+    font-weight: bold;
+    float: right;
+    color: #101010;
+    text-decoration: none;
+
+    &:hover {
+      color: #fff;
+    }
+  }
+}

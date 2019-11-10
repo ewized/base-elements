@@ -1,0 +1,30 @@
+{
+  "name": "stream-deck",
+  "version": "1.0.0",
+  "description": "",
+  "private": true,
+  "dependencies": {
+    "css-loader": "^3.2.0",
+    "lit-element": "^2.2.1",
+    "lodash": "^4.17.15",
+    "node-sass": "^4.13.0",
+    "sass-loader": "^8.0.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.6.4",
+    "@babel/plugin-proposal-class-properties": "^7.5.5",
+    "@babel/plugin-proposal-decorators": "^7.6.0",
+    "@babel/preset-env": "^7.6.3",
+    "babel-loader": "^8.0.6",
+    "babel-register": "^6.26.0",
+    "webpack": "^4.41.2",
+    "webpack-cli": "^3.3.9"
+  },
+  "scripts": {
+    "build": "webpack --mode production",
+    "dev": "webpack --watch --mode development"
+  },
+  "keywords": [],
+  "author": "ewized",
+  "license": "No License"
+}

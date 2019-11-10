@@ -1,0 +1,29 @@
+/* This is css that will be first loaded on the site */
+body {
+  font-family: sans-serif;
+  margin: 0;
+  padding: 0;
+  line-height: 1.5;
+  background:  #ededed;
+}
+
+h1.loading-spinner {
+  padding-top: 10%;
+  text-align: center;
+  color: #333;
+}
+
+noscript {
+  display: block;
+  text-align: center;
+  background-color: #eb4034;
+  margin: 5px;
+  padding: 10px 15px;
+  color: #fefefe;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+noscript code {
+  font-size: 14px;
+}

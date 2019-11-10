@@ -1,0 +1,21 @@
+{
+  "name": "Template Site",
+  "short_name": "template",
+  "description": "Site to be used as a template for creating web apps.",
+  "background_color": "#1c486e",
+  "theme_color": "#276499",
+  "start_url": "/?utm_source=web_app&utm_medium=manifest&web_app=true",
+  "orientation": "portrait",
+  "display": "standalone",
+  "icons": [
+    {
+      "src": "img/logo.png",
+      "sizes": "72x72 96x96 128x128 256x256"
+    }
+  ],
+  "serviceworker": {
+    "src": "sw.js",
+    "scope": "/",
+    "use_cache": false
+  }
+}
