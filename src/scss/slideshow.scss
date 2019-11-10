@@ -2,12 +2,20 @@
   position: relative;
   background-color: red;
   overflow: hidden;
+  min-height: 100px;
 
-  .image, .image * {
-    background-color: #999;
+  .image {
+    background-color: #696969;
     position: absolute;
     width: 100%;
     height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    * {
+      max-height: 100%;
+    }
   }
 
   .control {
