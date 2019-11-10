@@ -10,7 +10,8 @@ e-paper {
     color: $text-primary-color;
   }
 
-  > div {
+  > p {
+    margin: 0;
     padding: 10px;
   }
 }

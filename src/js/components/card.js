@@ -9,10 +9,14 @@ export class Card extends LitElement {
   render() {
     return html`
       <e-paper>
-        <h3 class="text-overflow">${this.attributes.header.value}</h3>
-        <div>
+        <h3 class="text-overflow">
+          <slot name="header">${this.attributes?.header?.value}</slot>
+        </h3>
+        <slot name="head"></slot>
+        <p>
           <slot></slot>
-        </div>
+        </p>
+        <slot name="tail"></slot>
       </e-paper>
     `
   }
