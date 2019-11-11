@@ -1,7 +1,7 @@
 @import 'theme';
 
 a {
-  color: $text-color;
+  color: var(--color, $text-color);
   text-decoration: none;
 
   &:visited {
@@ -9,11 +9,11 @@ a {
   }
 
   &:hover {
-    color: #000;
+    color: var(--color-hover, #000);
   }
 
   &:active, &:focus {
-    color: #111;
-    border-bottom: 1px dotted #111;
+    color: var(--color-hover, #111);
+    border-bottom: 1px dotted var(--color-hover, #111);
   }
 }

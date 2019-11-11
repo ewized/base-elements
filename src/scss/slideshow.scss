@@ -2,9 +2,12 @@
 
 .slideshow {
   position: relative;
-  background-color: red;
   overflow: hidden;
-  min-height: 100px;
+  height: 100vh; // decide on this later
+
+  content: {
+    display: contents;
+  }
 
   .image {
     background-color: #696969;

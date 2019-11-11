@@ -2,8 +2,19 @@ span {
   color: #fff;
   border-radius: 15px;
   background-color: #789;
-  padding: 3px 5px;
+  padding: 2px 3px;
   box-shadow: 1px 1px 2px #aaa;
-  margin: 2px;
   display: inline-block;
+  vertical-align: super;
+  font-size: 12px;
+  font-weight: normal;
+
+  slot {
+    display: inline;
+    margin: 1px;
+  }
+
+  ::slotted(*) {
+    margin: 0 2px;
+  }
 }

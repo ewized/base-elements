@@ -25,6 +25,6 @@ export class Icon extends LitElement {
   }
 
   render() {
-    return html`<i class="fa fa-${this.innerHTML}" style=${this.attributes?.style?.value}></i>`
+    return html`<i class="fa fa-${this.innerHTML} ${this.attributes?.spin ? 'fa-spin' : 'fa-static'}"></i>`
   }
 }

@@ -28,6 +28,9 @@
 
   <div class="container">
     <e-button link="https://www.year4000.net/">www.year4000.net</e-button>
+    <e-button link="https://www.year4000.net/"><e-icon>link</e-icon>www.year4000.net</e-button>
+    <e-button link="https://www.year4000.net/">www.year4000.net<e-icon>link</e-icon></e-button>
+    <e-button link="https://www.year4000.net/"><e-icon spin>spinner</e-icon></e-button>
   </div>
 
   <div class="container">
@@ -44,9 +47,13 @@
   </div>
 
   <div class="container">
-    <e-badge>beta</e-badge>
+    <h1 class="no-spacing">Logo<e-badge>beta</e-badge></h1>
     <br>
     <e-badge>1</e-badge>
+    <br>
+    <e-badge><e-icon>align-justify</e-icon></e-badge>
+    <br>
+    <e-badge><e-icon>star</e-icon>Important</e-badge>
   </div>
 
   <div class="container">
@@ -84,8 +91,20 @@
   <div class="container">
     <e-icon>star</e-icon>
     <e-icon>coffee</e-icon>
-    <e-icon>coffee</e-icon>
-    <e-icon>coffee</e-icon>
+    <e-icon>adjust</e-icon>
+    <e-icon>align-justify</e-icon>
+  </div>
+
+  <div class="container">
+    This text has <e-highlight>highlight</e-highlight> on it.
+    <br>
+    This text has a link highlight <e-highlight><e-link link="https://www.year4000.net/revisions">v1.0.0</e-link></e-highlight> to click on.
+    <br>
+    This text has a link highlight <e-highlight>
+      <e-icon>star</e-icon>
+      <e-link link="https://www.year4000.net/revisions">v1.0.0</e-link>
+    </e-highlight> to click on.
+
   </div>
 </body>
 

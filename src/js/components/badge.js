@@ -8,7 +8,7 @@ export class Badge extends LitElement {
 
   render() {
     return html`
-      <span style=${this.attributes?.style?.value}>
+      <span>
         <slot></slot>
       </span>
     `
