@@ -17,7 +17,7 @@ module.exports = {
         test: /\.css$/,
         include: /src/,
         use: [
-          { loader: 'css-loader', options: { url: false } },
+          { loader: 'css-loader' },
         ]
       },
       // Converts scss files into css to use within custom elements
@@ -25,7 +25,7 @@ module.exports = {
         test: /\.scss$/,
         include: /src/,
         use: [
-          { loader: 'css-loader', options: { url: false } },
+          { loader: 'css-loader' },
           { loader: 'sass-loader' },
         ]
       },
@@ -61,7 +61,7 @@ module.exports = {
         use: [
           {
             loader: 'file-loader',
-            options: { name: '[name].[ext]' }
+            options: { name: '[path][name].[ext]' }
           },
         ]
       },
