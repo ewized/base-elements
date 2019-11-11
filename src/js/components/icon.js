@@ -1,4 +1,4 @@
-import { LitElement, html, customElement } from 'lit-element'
+import { LitElement, html, css, customElement } from 'lit-element'
 import { styles } from '../utils'
 import style from '../../scss/icon.scss'
 
@@ -8,8 +8,7 @@ export class Icon extends LitElement {
   // Fix bug with icons https://github.com/mdn/interactive-examples/issues/887#issuecomment-528205273
   connectedCallback() {
     super.connectedCallback()
-    let fontFaceSheet = new CSSStyleSheet()
-    fontFaceSheet.replaceSync(`
+    let fontFaceSheet = css`
       @font-face {
         font-family: "FontAwesome";
         font-weight: normal;
@@ -21,7 +20,7 @@ export class Icon extends LitElement {
              url("/assets/fontawesome-webfont.ttf") format("truetype"),
              url("/assets/fontawesome-webfont.svg#fontawesomeregular") format("svg");
       }
-    `)
+    `.styleSheet
     document.adoptedStyleSheets = [ ...document.adoptedStyleSheets, fontFaceSheet ]
   }
 
