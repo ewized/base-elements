@@ -12,9 +12,9 @@ export class Icon extends LitElement {
       @font-face {
         font-family: "FontAwesome";
         font-weight: normal;
-        font-style : normal;
-        src : url("/assets/fontawesome-webfont.eot");
-        src : url("/assets/fontawesome-webfont.eot?#iefix") format("embedded-opentype"),
+        font-style: normal;
+        src: url("/assets/fontawesome-webfont.eot");
+        src: url("/assets/fontawesome-webfont.eot?#iefix") format("embedded-opentype"),
              url("/assets/fontawesome-webfont.woff2") format("woff2"),
              url("/assets/fontawesome-webfont.woff") format("woff"),
              url("/assets/fontawesome-webfont.ttf") format("truetype"),
