@@ -10,7 +10,7 @@ export class Slideshow extends LitElement {
   index = 0
   length = this.children?.length || 0
   @property() image = this.children[0].cloneNode()
-  @property() pause = false
+  @property() pause = !(this.children?.autoPlay && true)
 
   async next() {
     this.item(++this.index >= this.length ? 0 : this.index)
