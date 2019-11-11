@@ -61,7 +61,7 @@ module.exports = {
         use: [
           {
             loader: 'file-loader',
-            options: { name: '[path][name].[ext]' }
+            options: { name: '[name].[ext]' }
           },
         ]
       },
