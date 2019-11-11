@@ -1,0 +1,13 @@
+content {
+  display: flex;
+  height: 100%;
+
+  &.center {
+    justify-content: center;
+    align-items: center;
+  }
+
+  e-flex-item {
+    flex: 1;
+  }
+}
