@@ -9,15 +9,18 @@ const DEFAULT_DELAY = 5000
 export class Slideshow extends LitElement {
   index = 0
   length = this.children?.length || 0
-  @property() image = this.children[0].cloneNode()
+  delay = Number(this.attributes?.delay?.value || DEFAULT_DELAY)
+  @property() image = this.children[0]?.cloneNode()
   @property() pause = !(this.children?.autoPlay && true)
 
   async next() {
-    this.item(++this.index >= this.length ? 0 : this.index)
+    let i = this.index
+    this.item(++i >= this.length ? 0 : i)
   }
 
   async prev() {
-    this.item(--this.index <= -1 ? this.length - 1 : this.index)
+    let i = this.index
+    this.item(--i <= -1 ? this.length - 1 : i)
   }
 
   item(i) {
@@ -25,24 +28,49 @@ export class Slideshow extends LitElement {
       i = 0
     }
     this.index = i
-    this.image = this.children[this.index].cloneNode()
+    this.image = this.children[this.index]?.cloneNode()
+    // Triggered when the image has been changed
+    this.dispatchEvent(new CustomEvent('changed-image', {
+      detail: {
+        index: this.index,
+        image: this.image,
+      },
+      bubbles: true,
+      composed: true,
+    }))
   }
 
   async togglePause() {
-    this.pause = !this.pause
+    // Only allow pausing when the delay > 0
+    if (this.delay > 0) {
+      this.pause = !this.pause
+      // Triggered when the image has been paused or resumed playing
+      this.dispatchEvent(new CustomEvent('paused', {
+        detail: {
+          pause: this.pause,
+          index: this.index,
+          image: this.image,
+        },
+        bubbles: true,
+        composed: true,
+      }))
+    }
   }
 
   firstUpdated() {
-    let delay = Number(this.attributes?.delay?.value) || DEFAULT_DELAY
-    this.intervalId = setInterval(async () => {
-      if (!this.pause) {
-        this.next()
-      }
-    }, delay)
+    // Create the interval timer if its greator than 0
+    if (this.delay > 0) {
+      this.intervalId = setInterval(async () => {
+        if (!this.pause) {
+          this.next()
+        }
+      }, this.delay)
+    }
   }
 
   disconnectedCallback() {
     super.disconnectedCallback()
+    // Clear the interval timer
     if (this.intervalId) {
       clearInterval(this.intervalId)
     }
@@ -55,8 +83,13 @@ export class Slideshow extends LitElement {
           <div class="image">${this.image}</div>
           <nav class=${this.attributes?.hideControls ? 'hide' : 'show'}>
             <div class="items">
-              ${[ ...Array(this.length) ].map((e, i) => {
+              ${[ ...Array(this.length).keys() ].map(i => {
+                // Current index item is the play pause toggle
                 if (i === this.index) {
+                  // When there is no delay just show static images like a presentation
+                  if (this.delay <= 0) {
+                    return html`<div class="item play"></div>`
+                  }
                   return html`<div class=${this.pause ? 'item pause' : 'item play'} @click=${this.togglePause}></div>`
                 }
                 return html`<div class='item' @click=${() => this.item(i)}></div>`

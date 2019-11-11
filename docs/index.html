@@ -50,7 +50,7 @@
   </div>
 
   <div class="container">
-    <e-slideshow delay="6000" style="height: 360px; width: 640px;">
+    <e-slideshow id="slideshow" delay="0" style="height: 360px; width: 640px;">
       <img src="https://picsum.photos/200">
       <img src="https://picsum.photos/300">
       <img src="https://picsum.photos/600">
@@ -60,6 +60,11 @@
       <img src="https://picsum.photos/id/7/1920/1080">
       <img src="https://picsum.photos/id/8/1920/1080">
     </e-slideshow>
+    <script>
+      let slideshow = document.getElementById('slideshow')
+      slideshow.addEventListener('paused', event => console.log(event))
+      slideshow.addEventListener('changed-image', event => console.log(event))
+    </script>
   </div>
 
   <div class="container">
