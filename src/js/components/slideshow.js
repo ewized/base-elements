@@ -42,6 +42,7 @@ export class Slideshow extends LitElement {
   }
 
   disconnectedCallback() {
+    super.disconnectedCallback()
     if (this.intervalId) {
       clearInterval(this.intervalId)
     }
