@@ -1,5 +1,5 @@
 import { LitElement, html, customElement } from 'lit-element'
-import { styles } from '../utils.js'
+import { styles } from '../utils'
 import style from '../../scss/link.scss'
 
 @customElement('e-link')
