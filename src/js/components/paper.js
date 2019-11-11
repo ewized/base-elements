@@ -8,7 +8,7 @@ export class Paper extends LitElement {
 
   render() {
     return html`
-      <div>
+      <div style=${this.attributes?.style?.value}>
         <slot></slot>
       </div>
     `

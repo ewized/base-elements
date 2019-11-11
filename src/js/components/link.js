@@ -8,7 +8,7 @@ export class Link extends LitElement {
 
   render() {
     return html`
-      <a href=${this.attributes.link.value}>
+      <a href=${this.attributes.link.value} style=${this.attributes?.style?.value}>
         <slot></slot>
       </a>
     `

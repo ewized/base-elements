@@ -16,6 +16,6 @@ export class Image extends LitElement {
   }
 
   render() {
-    return html`<img src=${this.image}></img>`
+    return html`<img src=${this.image} style=${this.attributes?.style?.value}></img>`
   }
 }
