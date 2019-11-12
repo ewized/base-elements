@@ -9,7 +9,7 @@ import style from '../../scss/code.scss'
 export class Code extends LitElement {
 
   render() {
-    let pretty = PR.prettyPrintOne(this.innerHTML, this.attributes?.lang?.value, this.attributes?.lineNumbers && true)
+    let pretty = PR.prettyPrintOne(this.innerHTML, this.attributes?.language?.value, this.attributes?.lineNumbers && true)
     return html`<e-preformat><code>${unsafeHTML(pretty)}</code></e-preformat>`
   }
 }

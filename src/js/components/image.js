@@ -11,11 +11,28 @@ export class Image extends LitElement {
   @property() image = TRANS_PNG
 
   firstUpdated() {
-    // todo, generate the lazy loading of the image value
+    // todo generate the lazy loading of the image value
     this.image = this.attributes.source.value
   }
 
+  /** Never forget the alt tag, use file name if it's not specificed */
+  get altTag() {
+    // todo remove query parameters from alt and # selector
+    let alt = this.attributes?.alt?.value
+    let lastSeperator = this.image.lastIndexOf('/')
+    if (!alt && lastSeperator > 0) {
+      if (lastSeperator == this.image.length - 1) {
+        // remove http prefix if any
+        alt = this.image.substr(0, lastSeperator).replace(/http(s)?:\/\//, '')
+      } else {
+        // remove suffix if any
+        alt = this.image.substr(lastSeperator + 1).replace(/\.([A-Za-z])+/, '')
+      }
+    }
+    return alt
+  }
+
   render() {
-    return html`<img src=${this.image}></img>`
+    return html`<img alt=${this.altTag} src=${this.image}></img>`
   }
 }
