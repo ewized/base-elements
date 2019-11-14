@@ -10,6 +10,7 @@ export { Slideshow } from './js/components/slideshow.js'
 export { Code } from './js/components/code.js'
 export { Icon } from './js/components/icon.js'
 export { Highlight } from './js/components/highlight.js'
+export { Tooltip } from './js/components/tooltip.js'
 
 // Layout Components
 export { FlexBox, FlexItem, FlexCenter } from './js/layouts/flex.js'

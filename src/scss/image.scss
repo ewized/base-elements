@@ -3,6 +3,7 @@ img {
   background-color: #ccc;
   background-repeat: no-repeat;
   animation: loading 5s infinite;
+  display: block;
 }
 
 @keyframes loading {

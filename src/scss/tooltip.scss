@@ -1,0 +1,61 @@
+html {
+  background-color: red;
+}
+
+span.wrapper {
+  --tooltip-color: #666;
+  position: relative;
+
+  // Tooltip content
+  > slot[name="tooltip"] {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    margin-top: 5px;
+    border-radius: 2px;
+    background-color: var(--tooltip-color);
+    padding: 0;
+
+    // Add padding to the default span element
+    span.tooltip {
+      white-space: nowrap;
+      padding: 2px 5px;
+      color: #fff;
+      font-size: 14px;
+    }
+  }
+
+  // Arrow
+  &:before {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    height: 0;
+    width: 0;
+    content: '';
+    // Triangle
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-bottom: 5px solid var(--tooltip-color);
+  }
+
+  // Show elements when hovered
+  &:hover, &:focus {
+    &:before, slot[name="tooltip"] {
+      display: block;
+      animation: fade 0.15s;
+    }
+  }
+}
+
+// The fade animation
+@keyframes fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
