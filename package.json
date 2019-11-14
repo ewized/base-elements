@@ -1,9 +1,17 @@
 {
   "name": "base-elements",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "This contains styled web components that are used to create websites",
   "repository": "https://github.com/ewized/base-elements",
   "private": false,
+  "main": "base_elements.bundle.js",
+  "files": [
+    "/README.md",
+    "/base_elements.bundle.js",
+  ],
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
+  },
   "dependencies": {
     "code-prettify": "^0.1.0",
     "font-awesome": "^4.7.0",
@@ -26,7 +34,8 @@
   },
   "scripts": {
     "build": "webpack --mode production",
-    "dev": "webpack --watch --mode development"
+    "dev": "webpack --watch --mode development",
+    "publish": "npm run build && cp ./docs/assets/base_elements.bundle.js ."
   },
   "keywords": [],
   "author": "ewized",
