@@ -1,4 +1,4 @@
-# Base Elements
+# Base Elements [![Github Actions](https://github.com/ewized/base-elements/workflows/Node%20CI/badge.svg)](https://github.com/ewized/base-elements)
 
 - [Discord](https://discord.gg/ySj69qR): #year4000 on Discord
 
