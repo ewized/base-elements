@@ -7,7 +7,7 @@
   "main": "base_elements.bundle.js",
   "files": [
     "/README.md",
-    "/base_elements.bundle.js",
+    "/base_elements.bundle.js"
   ],
   "publishConfig": {
     "registry": "https://npm.pkg.github.com/"
