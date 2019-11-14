@@ -35,7 +35,7 @@
   "scripts": {
     "build": "webpack --mode production",
     "dev": "webpack --watch --mode development",
-    "publish": "npm run build && cp ./docs/assets/base_elements.bundle.js ."
+    "prePublish": "npm run build && cp ./docs/assets/base_elements.bundle.js ."
   },
   "keywords": [],
   "author": "ewized",
