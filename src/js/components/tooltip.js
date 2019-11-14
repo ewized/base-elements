@@ -8,7 +8,7 @@ export class Tooltip extends LitElement {
 
   /** Get the copy of the tooltip if slot is not slotted */
   get tooltip() {
-    return this.attributes?.tooltip?.value
+    return this.attributes?.value?.value
   }
 
   /** Get the direction of the tooltip defaults to bottom */
