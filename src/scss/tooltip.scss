@@ -10,12 +10,10 @@ span.wrapper {
   > slot[name="tooltip"] {
     display: none;
     position: absolute;
-    top: 100%;
-    left: 0;
-    margin-top: 5px;
     border-radius: 2px;
     background-color: var(--tooltip-color);
     padding: 0;
+    z-index: 1;
 
     // Add padding to the default span element
     span.tooltip {
@@ -26,19 +24,13 @@ span.wrapper {
     }
   }
 
-  // Arrow
+  // Arrow wrapper
   &:before {
     display: none;
     position: absolute;
-    top: 100%;
-    left: 50%;
     height: 0;
     width: 0;
     content: '';
-    // Triangle
-    border-left: 5px solid transparent;
-    border-right: 5px solid transparent;
-    border-bottom: 5px solid var(--tooltip-color);
   }
 
   // Show elements when hovered
@@ -46,6 +38,83 @@ span.wrapper {
     &:before, slot[name="tooltip"] {
       display: block;
       animation: fade 0.15s;
+    }
+  }
+
+  // Style the diffrent directions
+  &.bottom {
+    // Arrow
+    &:before {
+      top: 100%;
+      left: 50%;
+      // Triangle
+      border-left: 5px solid transparent;
+      border-right: 5px solid transparent;
+      border-bottom: 5px solid var(--tooltip-color);
+    }
+
+    // Tooltip
+    > slot[name="tooltip"] {
+      top: 100%;
+      left: 0;
+      margin-top: 5px;
+    }
+  }
+
+  &.top {
+    // Arrow
+    &:before {
+      bottom: 100%;
+      left: 50%;
+      // Triangle
+      border-left: 5px solid transparent;
+      border-right: 5px solid transparent;
+      border-top: 5px solid var(--tooltip-color);
+    }
+
+    // Tooltip
+    > slot[name="tooltip"] {
+      bottom: 100%;
+      left: 0;
+      margin-bottom: 5px;
+    }
+  }
+
+  &.left {
+    // Arrow
+    &:before {
+      top: 25%;
+      right: 100%;
+      // Triangle
+      border-top: 5px solid transparent;
+      border-bottom: 5px solid transparent;
+      border-left: 5px solid var(--tooltip-color);
+    }
+
+    // Tooltip
+    > slot[name="tooltip"] {
+      top: 0;
+      right: 100%;
+      margin-right: 5px;
+    }
+  }
+
+  &.right {
+    // Arrow
+    &:before {
+      top: 25%;
+      left: 100%;
+      // Triangle
+      border-top: 5px solid transparent;
+      border-bottom: 5px solid transparent;
+      border-right: 5px solid var(--tooltip-color);
+    }
+
+    // Tooltip
+    > slot[name="tooltip"] {
+      top: 0;
+      left: 100%;
+      margin-left: 5px;
     }
   }
 }

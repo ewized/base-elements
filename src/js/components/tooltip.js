@@ -18,7 +18,7 @@ export class Tooltip extends LitElement {
 
   render() {
     return html`
-      <span class="wrapper">
+      <span class="wrapper ${this.direction}">
         <slot></slot>
         <slot name="tooltip">
           <span class="tooltip">${this.tooltip}</span>
