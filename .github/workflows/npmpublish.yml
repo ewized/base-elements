@@ -1,6 +1,6 @@
 name: Node.js Package
 
-on: [push]
+on: []
 
 jobs:
   build:
@@ -22,7 +22,6 @@ jobs:
         with:
           node-version: 12
           registry-url: https://npm.pkg.github.com/
-          scope: '@your-github-username'
       - run: npm ci
       - run: npm run prePublish
       - run: npm publish --tag dev #${GITHUB_SHA::8}
