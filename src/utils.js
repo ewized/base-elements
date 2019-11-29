@@ -1,6 +1,5 @@
 import { css, unsafeCSS, CSSResult } from 'lit-element'
 
-
 /** Takes the import object for scss files and inject it into the custom element */
 export const _styles = style => css`${unsafeCSS(style[0][1])}`
 
@@ -16,8 +15,8 @@ export function styles(...styles) {
         placement: 'static',
         key: 'styles',
         descriptor: {},
-        initializer: () => styles.map(style => style instanceof CSSResult ? style : _styles(style))
-      }]
+        initializer: () => styles.map(style => style instanceof CSSResult ? style : _styles(style)),
+      }],
     }
   }
 }

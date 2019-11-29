@@ -18,7 +18,7 @@ module.exports = {
         include: /src/,
         use: [
           { loader: 'css-loader' },
-        ]
+        ],
       },
       // Converts scss files into css to use within custom elements
       {
@@ -27,7 +27,7 @@ module.exports = {
         use: [
           { loader: 'css-loader' },
           { loader: 'sass-loader' },
-        ]
+        ],
       },
       // Transfile the source files so we can use newer syntax
       {
@@ -42,7 +42,7 @@ module.exports = {
                 {
                   modules: false,
                   targets: {
-                    chrome: "77",
+                    chrome: '77',
                   },
                 },
               ],
@@ -52,9 +52,9 @@ module.exports = {
               '@babel/plugin-proposal-optional-chaining',
               '@babel/plugin-proposal-class-properties',
               [ '@babel/plugin-proposal-decorators', { decoratorsBeforeExport: true } ],
-            ]
-          }
-        }
+            ],
+          },
+        },
       },
       // Load files
       {
@@ -62,10 +62,10 @@ module.exports = {
         use: [
           {
             loader: 'file-loader',
-            options: { name: '[name].[ext]' }
+            options: { name: '[name].[ext]' },
           },
-        ]
+        ],
       },
-    ]
-  }
-};
+    ],
+  },
+}
