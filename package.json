@@ -48,7 +48,8 @@
     "dev": "webpack --watch --mode development",
     "lint": "eslint src/**.js",
     "package": "npm run build -- -o ./base_elements.bundle.js && cp -R ./src/* .",
-    "prepublish": "npm run lint && npm run package"
+    "prepublish": "npm run lint && npm run package",
+    "__release": "npm run lint && npm run build && npm test && npm version patch && git push --tags origin master"
   },
   "keywords": [],
   "author": "ewized",

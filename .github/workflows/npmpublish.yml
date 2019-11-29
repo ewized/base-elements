@@ -16,7 +16,7 @@ jobs:
       - name: npm install, build, and test
         run: |
           npm ci
-          npm run build --if-present
+          npm run build
           npm test
         env:
           CI: true
@@ -65,4 +65,4 @@ jobs:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
           asset_path: docs/assets/base_elements.bundle.js.map
           asset_name: base_elements.bundle.js.map
-          asset_content_type: application/json
+          asset_content_type: application/octet-stream
