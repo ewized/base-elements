@@ -1,6 +1,6 @@
 {
   "name": "@ewized/base-elements",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "This contains styled web components that are used to create websites",
   "repository": "https://github.com/ewized/base-elements",
   "private": false,
