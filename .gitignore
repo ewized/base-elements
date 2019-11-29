@@ -1,4 +1,12 @@
 docs/assets/*
+/base_elements.bundle.js
+/components/
+/elements/
+/layouts/
+/index.js
+/utils.js
+/theme.scss
+/fontawesome*
 
 # Created by https://www.gitignore.io/api/node,sass
 # Edit at https://www.gitignore.io/?templates=node,sass

@@ -5,9 +5,15 @@
   "repository": "https://github.com/ewized/base-elements",
   "private": false,
   "main": "base_elements.bundle.js",
+  "module": "index.js",
   "files": [
-    "/README.md",
-    "/base_elements.bundle.js"
+    "base_elements.bundle.js",
+    "components/",
+    "elements/",
+    "layouts/",
+    "index.js",
+    "utils.js",
+    "theme.scss"
   ],
   "publishConfig": {
     "registry": "https://npm.pkg.github.com/"
@@ -38,7 +44,9 @@
   "scripts": {
     "build": "webpack --mode production",
     "dev": "webpack --watch --mode development",
-    "prePublish": "npm run build && cp ./docs/assets/base_elements.bundle.js ."
+    "lint": "eslint src/**.js",
+    "package": "npm run build -- -o ./base_elements.bundle.js && cp -R ./src/* .",
+    "prepublish": "npm run lint && npm run package"
   },
   "keywords": [],
   "author": "ewized",
