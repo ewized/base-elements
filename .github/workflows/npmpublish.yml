@@ -49,5 +49,5 @@ jobs:
           git config --global user.name "GitHub Actions"
           npm version patch
       - uses: ad-m/github-push-action@v0.5.0
-        env:
+        with:
           github_token: ${{secrets.GITHUB_TOKEN}}
