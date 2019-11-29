@@ -1,8 +1,9 @@
 name: Node Package
 
 on:
-  release:
-    types: [published]
+  push:
+    tags:
+      - v*.*.*
 
 jobs:
   build:
@@ -35,19 +36,33 @@ jobs:
         env:
           NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
 
-  # bump-version:
-  #   needs: publish-gpr
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     - uses: actions/checkout@v1
-  #     - uses: actions/setup-node@v1
-  #       with:
-  #         node-version: 12
-  #         registry-url: https://npm.pkg.github.com/
-  #     - run: |
-  #         git config --global user.email "action@github.com"
-  #         git config --global user.name "GitHub Actions"
-  #         npm version patch
-  #     - uses: ad-m/github-push-action@v0.5.0
-  #       with:
-  #         github_token: ${{secrets.GITHUB_TOKEN}}
+  create-release:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - id: create_release
+        uses: actions/create-release@v1.0.0
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ github.ref }}
+          release_name: ${{ github.ref }}
+          draft: true
+          prerelease: false
+      - uses: actions/upload-release-asset@v1.0.1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: docs/assets/base_elements.bundle.js
+          asset_name: base_elements.bundle.js
+          asset_content_type: application/javascript
+      - uses: actions/upload-release-asset@v1.0.1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: docs/assets/base_elements.bundle.js.map
+          asset_name: base_elements.bundle.js.map
+          asset_content_type: application/json
