@@ -1,0 +1,17 @@
+@import '../../theme';
+
+em {
+  display: inline-block;
+  background-color: #567899;
+  padding: 0 5px;
+  margin: 1px 0;
+  color: #fefefe;
+  border-radius: 2px;
+  font-style: normal;
+
+  ::slotted(*) {
+    --color: #efefef;
+    --color-hover: #eee;
+    --color-active: #fff;
+  }
+}
