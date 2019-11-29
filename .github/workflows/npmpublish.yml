@@ -50,6 +50,7 @@ jobs:
           release_name: ${{ github.ref }}
           draft: true
           prerelease: false
+      - run: ls docs/assets/
       - uses: actions/upload-release-asset@v1.0.1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
