@@ -23,3 +23,9 @@ jobs:
           npm test
         env:
           CI: true
+      - run: mkdir out/ && cp docs/assets/base_elements.bundle.* out/
+      - name: Upload bundle artifact
+        uses: actions/upload-artifact@v1.0.0
+        with:
+          name: base_elements
+          path: out/

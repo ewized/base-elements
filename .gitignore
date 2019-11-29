@@ -1,5 +1,6 @@
 docs/assets/*
 /base_elements.bundle.js
+/base_elements.bundle.js.map
 /components/
 /elements/
 /layouts/
