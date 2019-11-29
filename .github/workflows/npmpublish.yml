@@ -1,4 +1,4 @@
-name: Node.js Package
+name: Node Package
 
 on: [release]
 
@@ -10,8 +10,13 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: 12
-      - run: npm ci
-      - run: npm test
+      - name: npm install, build, and test
+        run: |
+          npm ci
+          npm run build --if-present
+          npm test
+        env:
+          CI: true
 
   publish-gpr:
     needs: build

@@ -42,6 +42,7 @@
     "webpack-cli": "^3.3.9"
   },
   "scripts": {
+    "test": "echo 'No Tests'",
     "build": "webpack --mode production",
     "dev": "webpack --watch --mode development",
     "lint": "eslint src/**.js",
