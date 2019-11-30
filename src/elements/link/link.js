@@ -7,12 +7,17 @@ import style from './link.scss'
 export default class Link extends LitElement {
   /** Generate the action text for the link */
   get actionText() {
-    return this.attributes?.title?.value || this.innerHTML
+    return this.attributes?.label?.value || this.innerHTML
+  }
+
+  /** Get the target of the link */
+  get target() {
+    return this.attributes?.target?.value || '_self'
   }
 
   render() {
     return html`
-      <a href=${this.attributes.link.value} title=${this.actionText} aria-label=${this.actionText}>
+      <a target=${this.target} href=${this.attributes.link.value} aria-label=${this.actionText}>
         <slot></slot>
       </a>
     `
