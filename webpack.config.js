@@ -4,7 +4,7 @@ module.exports = {
   mode: 'production',
   devtool: 'source-map',
   entry: {
-    base_elements: './src/index.js',
+    base_elements: './src/index.ts',
   },
   output: {
     path: path.resolve(__dirname, 'docs/assets'),
@@ -28,6 +28,12 @@ module.exports = {
           { loader: 'css-loader' },
           { loader: 'sass-loader' },
         ],
+      },
+      // Transpile TypeScript source files
+      {
+        test: /\.ts$/,
+        use: 'ts-loader',
+        exclude: /node_modules/,
       },
       // Transfile the source files so we can use newer syntax
       {
