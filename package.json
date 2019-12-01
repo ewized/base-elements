@@ -38,11 +38,11 @@
   },
   "scripts": {
     "test": "echo 'No Tests'",
-    "build": "webpack --mode production",
+    "build": "tsc && npm run copyscss && webpack --mode production",
     "dev": "webpack --watch --mode development",
     "lint": "eslint src/**.ts",
     "copyscss": "find ./src -name '**.scss' | awk -F 'src/' '{print \"./src/\"$2, \"./lib/\"$2}' | xargs -n2 cp",
-    "package": "npm run build -- -o ./base_elements.bundle.js && tsc && npm run copyscss && cp -R ./lib/* .",
+    "package": "npm run build -- -o ./base_elements.bundle.js && cp -R ./lib/* .",
     "prepublish": "npm run lint && npm run package",
     "__release": "npm run lint && npm run build && npm test && npm version patch && git push --tags origin master"
   },
