@@ -1,8 +1,8 @@
 // Dom Components
-export * from './components/index.js'
+import './components'
 
 // Element Components
-export * from './elements/index.js'
+import './elements'
 
 // Layout Components
-export * from './layouts/index.js'
+import './layouts'

@@ -1,1 +1,1 @@
-export Tooltip from './tooltip.js'
+export { default } from './tooltip'

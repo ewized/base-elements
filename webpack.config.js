@@ -10,6 +10,9 @@ module.exports = {
     path: path.resolve(__dirname, 'docs/assets'),
     filename: '[name].bundle.js',
   },
+  resolve: {
+    extensions: ['.ts', '.css', '.scss'],
+  },
   module: {
     rules: [
       // Just import normal css files
@@ -34,33 +37,6 @@ module.exports = {
         test: /\.ts$/,
         use: 'ts-loader',
         exclude: /node_modules/,
-      },
-      // Transfile the source files so we can use newer syntax
-      {
-        test: /\.js$/,
-        exclude: /(node_modules|bower_components)/,
-        use: {
-          loader: 'babel-loader',
-          options: {
-            presets: [
-              [
-                '@babel/env',
-                {
-                  modules: false,
-                  targets: {
-                    chrome: '77',
-                  },
-                },
-              ],
-            ],
-            plugins: [
-              '@babel/plugin-proposal-export-default-from',
-              '@babel/plugin-proposal-optional-chaining',
-              '@babel/plugin-proposal-class-properties',
-              [ '@babel/plugin-proposal-decorators', { decoratorsBeforeExport: true } ],
-            ],
-          },
-        },
       },
       // Load files
       {

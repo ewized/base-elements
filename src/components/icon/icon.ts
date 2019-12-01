@@ -1,7 +1,8 @@
 import { LitElement, html, css, unsafeCSS, customElement } from 'lit-element'
-import { styles } from '../../utils.js'
+import { styles } from '../../utils'
 import style from './icon.scss'
 
+// @ts-ignore
 const BASE_ELEMENTS_FONT_PREFIX = unsafeCSS(window.BASE_ELEMENTS_FONT_PREFIX || 'fonts')
 
 @customElement('e-icon')
@@ -23,10 +24,11 @@ export default class Icon extends LitElement {
              url("${BASE_ELEMENTS_FONT_PREFIX}/fontawesome-webfont.svg#fontawesomeregular") format("svg");
       }
     `.styleSheet
+    // @ts-ignore
     document.adoptedStyleSheets = [ ...document.adoptedStyleSheets, fontFaceSheet ]
   }
 
   render() {
-    return html`<i class="fa fa-${this.innerHTML} ${this.attributes?.spin ? 'fa-spin' : 'fa-static'}"></i>`
+    return html`<i class="fa fa-${this.innerHTML} ${this.attributes.getNamedItem('spin') ? 'fa-spin' : 'fa-static'}"></i>`
   }
 }

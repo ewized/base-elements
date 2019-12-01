@@ -25,17 +25,9 @@
     "lit-element": "^2.2.1"
   },
   "devDependencies": {
-    "@babel/core": "^7.6.4",
-    "@babel/plugin-proposal-class-properties": "^7.7.4",
-    "@babel/plugin-proposal-decorators": "^7.7.4",
-    "@babel/plugin-proposal-export-default-from": "^7.7.4",
-    "@babel/plugin-proposal-optional-chaining": "^7.7.4",
-    "@babel/preset-env": "^7.6.3",
-    "babel-eslint": "^10.0.3",
-    "babel-loader": "^8.0.6",
-    "babel-register": "^6.26.0",
+    "@typescript-eslint/parser": "^2.9.0",
     "css-loader": "^3.2.0",
-    "eslint": "^6.7.1",
+    "eslint": "^6.7.2",
     "file-loader": "^4.2.0",
     "node-sass": "^4.13.0",
     "sass-loader": "^8.0.0",
@@ -48,7 +40,7 @@
     "test": "echo 'No Tests'",
     "build": "webpack --mode production",
     "dev": "webpack --watch --mode development",
-    "lint": "eslint src/**.js",
+    "lint": "eslint src/**.ts",
     "package": "npm run build -- -o ./base_elements.bundle.js && cp -R ./src/* .",
     "prepublish": "npm run lint && npm run package",
     "__release": "npm run lint && npm run build && npm test && npm version patch && git push --tags origin master"

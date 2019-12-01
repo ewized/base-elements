@@ -1,1 +1,1 @@
-export Preformat from './preformat.js'
+export { default } from './preformat'

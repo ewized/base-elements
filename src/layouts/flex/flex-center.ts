@@ -1,6 +1,5 @@
-import { LitElement, html, css, customElement } from 'lit-element'
-import { unsafeHTML } from 'lit-html/directives/unsafe-html'
-import { styles } from '../../utils.js'
+import { LitElement, html, customElement } from 'lit-element'
+import { styles } from '../../utils'
 import style from './flex.scss'
 
 /** Center items in the center of the box both vertical and horzonial */

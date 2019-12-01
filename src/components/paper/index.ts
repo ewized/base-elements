@@ -1,1 +1,1 @@
-export Paper from './paper.js'
+export { default } from './paper'

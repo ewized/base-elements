@@ -1,5 +1,5 @@
 import { LitElement, html, customElement } from 'lit-element'
-import { styles } from '../../utils.js'
+import { styles } from '../../utils'
 import style from './tooltip.scss'
 
 @customElement('e-tooltip')
@@ -8,12 +8,12 @@ export default class Tooltip extends LitElement {
 
   /** Get the copy of the tooltip if slot is not slotted */
   get tooltip() {
-    return this.attributes?.value?.value
+    return this.attributes.getNamedItem('value')?.value
   }
 
   /** Get the direction of the tooltip defaults to bottom */
   get direction() {
-    return this.attributes?.direction?.value || 'bottom'
+    return this.attributes.getNamedItem('direction')?.value || 'bottom'
   }
 
   render() {

@@ -1,3 +1,3 @@
-export FlexBox from './flex-box.js'
-export FlexCenter from './flex-center.js'
-export FlexItem from './flex-item.js'
+export * from './flex-box'
+export * from './flex-center'
+export * from './flex-item'

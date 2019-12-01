@@ -1,5 +1,5 @@
 import { LitElement, html, customElement, property } from 'lit-element'
-import { styles } from '../../utils.js'
+import { styles } from '../../utils'
 import style from './slideshow.scss'
 
 export const DEFAULT_DELAY = 5000
@@ -7,11 +7,12 @@ export const DEFAULT_DELAY = 5000
 @customElement('e-slideshow')
 @styles(style)
 export default class Slideshow extends LitElement {
+  intervalId = -1
   index = 0
   length = this.children?.length || 0
-  delay = Number(this.attributes?.delay?.value || DEFAULT_DELAY)
+  delay = Number(this.attributes.getNamedItem('delay')?.value || DEFAULT_DELAY)
   @property() image = this.children[0]?.cloneNode()
-  @property() pause = !(this.children?.autoPlay && true)
+  @property() pause = !(this.attributes.getNamedItem('autoPlay') && true)
 
   async next() {
     let i = this.index
@@ -23,7 +24,7 @@ export default class Slideshow extends LitElement {
     this.item(--i <= -1 ? this.length - 1 : i)
   }
 
-  item(i) {
+  item(i: number) {
     if (i < 0 || i >= this.length) {
       i = 0
     }
@@ -71,17 +72,17 @@ export default class Slideshow extends LitElement {
   disconnectedCallback() {
     super.disconnectedCallback()
     // Clear the interval timer
-    if (this.intervalId) {
+    if (this.intervalId > 0) {
       clearInterval(this.intervalId)
     }
   }
 
   render() {
     return html`
-      <div class="slideshow" style=${this.attributes?.style?.value}>
+      <div class="slideshow" style=${this.attributes.getNamedItem('style')?.value}>
         <content>
           <div class="image">${this.image}</div>
-          <nav class=${this.attributes?.hideControls ? 'hide' : 'show'}>
+          <nav class=${this.attributes.getNamedItem('hideControls') ? 'hide' : 'show'}>
             <div class="items">
               ${[ ...Array(this.length).keys() ].map(i => {
                 // Current index item is the play pause toggle

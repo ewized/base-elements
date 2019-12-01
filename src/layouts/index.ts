@@ -1,1 +1,1 @@
-export * from './flex/index.js'
+import './flex'

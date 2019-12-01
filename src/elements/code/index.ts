@@ -1,1 +1,1 @@
-export Code from './code.js'
+export { default } from './code'

@@ -1,1 +1,1 @@
-export Highlight from './highlight.js'
+export { default } from './highlight'

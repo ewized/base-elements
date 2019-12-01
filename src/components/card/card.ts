@@ -1,18 +1,22 @@
 import { LitElement, html, customElement } from 'lit-element'
-import { styles } from '../../utils.js'
+import { styles } from '../../utils'
 import style from './card.scss'
 
 @customElement('e-card')
 @styles(style)
 export default class Card extends LitElement {
 
+  get header() {
+    return this.attributes.getNamedItem('header')?.value
+  }
+
   render() {
     return html`
       <e-paper>
         <header>
           <slot name="left-icon"></slot>
-          <h3 class="text-overflow" title=${this.attributes?.header?.value}>
-            <slot name="header">${this.attributes?.header?.value}</slot>
+          <h3 class="text-overflow" title=${this.header}>
+            <slot name="header">${this.header}</slot>
           </h3>
           <slot name="right-icon"></slot>
         </header>
