@@ -6,13 +6,14 @@ on:
     branches:
     - 'master'
     paths:
+    - '.github/workflows/docs.yml'
     - 'public/**'
     - 'src/**'
     - 'package*.json'
 
 jobs:
-  # Build and test the project
-  build:
+  # Deploy to the gh-pages branch
+  github-pages:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
@@ -25,13 +26,6 @@ jobs:
           npm run build
         env:
           CI: true
-
-  # Once the build is successfull deploy to the gh-pages branch
-  github-pages:
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
-      - run: find . -name "*" -not -path "./node_modules/*" -not -path "./.git/*"
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@3.0.4
         with:
