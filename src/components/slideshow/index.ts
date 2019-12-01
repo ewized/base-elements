@@ -1,1 +1,1 @@
-export { default } from './slideshow'
+export { default as Slideshow, DEFAULT_DELAY } from './slideshow'

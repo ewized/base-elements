@@ -1,1 +1,1 @@
-export { default } from './paper'
+export { default as Paper } from './paper'

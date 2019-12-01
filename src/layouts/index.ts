@@ -1,1 +1,1 @@
-import './flex'
+export { FlexBox, FlexCenter, FlexItem } from './flex'

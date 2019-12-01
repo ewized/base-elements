@@ -1,3 +1,3 @@
-export * from './flex-box'
-export * from './flex-center'
-export * from './flex-item'
+export { default as FlexBox } from './flex-box'
+export { default as FlexCenter } from './flex-center'
+export { default as FlexItem } from './flex-item'

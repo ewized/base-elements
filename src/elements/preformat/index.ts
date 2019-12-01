@@ -1,1 +1,1 @@
-export { default } from './preformat'
+export { default as Preformat } from './preformat'

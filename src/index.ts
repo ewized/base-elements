@@ -1,8 +1,15 @@
 // Dom Components
-import './components'
+import * as components from './components'
 
 // Element Components
-import './elements'
+import * as elements from './elements'
 
 // Layout Components
-import './layouts'
+import * as layouts from './layouts'
+
+// Export the base elements objects
+export default {
+  components,
+  elements,
+  layouts,
+}
