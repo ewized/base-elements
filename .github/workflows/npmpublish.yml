@@ -6,23 +6,7 @@ on:
     - 'v[0-9]+.[0-9]+.[0-9]+'
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v1
-      - uses: actions/setup-node@v1
-        with:
-          node-version: 12
-      - name: npm install, build, and test
-        run: |
-          npm ci
-          npm run build
-          npm test
-        env:
-          CI: true
-
   publish-gpr:
-    needs: build
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
@@ -30,14 +14,18 @@ jobs:
         with:
           node-version: 12
           registry-url: https://npm.pkg.github.com/
-      - run: npm ci
-      - run: npm run prepublish
-      - run: npm publish --tag dev #${GITHUB_SHA::8}
+      - name: npm install, build, and test, publish
+        run: |
+          npm ci
+          npm run build
+          npm test
+          npm run prepublish
+          npm publish --tag dev
         env:
+          CI: true
           NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
 
   create-release:
-    needs: build
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
@@ -49,9 +37,15 @@ jobs:
           tag_name: ${{ github.ref }}
           release_name: ${{ github.ref }}
           draft: true
-          prerelease: false
-      - run: npm ci
-      - run: npm run build
+          body: |
+            https://github.com/ewized/base-elements/packages/55529
+      - name: npm install, build, and test
+        run: |
+          npm ci
+          npm run build
+          npm test
+        env:
+          CI: true
       - uses: actions/upload-release-asset@v1.0.1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
