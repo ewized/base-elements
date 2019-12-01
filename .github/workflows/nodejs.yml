@@ -27,5 +27,10 @@ jobs:
       - name: Upload bundle artifact
         uses: actions/upload-artifact@v1.0.0
         with:
-          name: base_elements
+          name: base_elements_bundle
           path: out/
+      - name: Upload lib artifact
+        uses: actions/upload-artifact@v1.0.0
+        with:
+          name: base_elements_lib
+          path: lib/

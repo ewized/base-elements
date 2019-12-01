@@ -8,6 +8,13 @@ docs/assets/*
 /utils.js
 /theme.scss
 /fontawesome*
+/*.js*
+/*.d.ts*
+/*.scss
+!/.*.js
+!/*.config.js
+!/*.json
+lib/
 
 # Created by https://www.gitignore.io/api/node,sass
 # Edit at https://www.gitignore.io/?templates=node,sass
