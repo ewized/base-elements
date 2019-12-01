@@ -12,9 +12,9 @@
     "components/",
     "elements/",
     "layouts/",
-    "index.js",
-    "utils.js",
-    "theme.scss"
+    "/*.js*",
+    "/*.d.ts*",
+    "/*.scss"
   ],
   "publishConfig": {
     "registry": "https://npm.pkg.github.com/"
@@ -41,7 +41,8 @@
     "build": "webpack --mode production",
     "dev": "webpack --watch --mode development",
     "lint": "eslint src/**.ts",
-    "package": "npm run build -- -o ./base_elements.bundle.js && cp -R ./src/* .",
+    "copyscss": "find ./src -name '**.scss' | awk -F 'src/' '{print \"./src/\"$2, \"./lib/\"$2}' | xargs -n2 cp",
+    "package": "npm run build -- -o ./base_elements.bundle.js && tsc && npm run copyscss && cp -R ./lib/* .",
     "prepublish": "npm run lint && npm run package",
     "__release": "npm run lint && npm run build && npm test && npm version patch && git push --tags origin master"
   },

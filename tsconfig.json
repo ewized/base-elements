@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "outDir": "dist/",
+    "outDir": "./lib/",
     "sourceMap": true,
     "noImplicitAny": true,
     "module": "es6",
@@ -8,6 +8,8 @@
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
     "moduleResolution": "node",
-    "strict": true
+    "strict": true,
+    "declaration": true,
+    "declarationMap": true
   }
 }
