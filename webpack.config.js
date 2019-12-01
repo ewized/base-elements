@@ -7,7 +7,7 @@ module.exports = {
     base_elements: './src/index.ts',
   },
   output: {
-    path: path.resolve(__dirname, 'docs/assets'),
+    path: path.resolve(__dirname, 'public/assets'),
     filename: '[name].bundle.js',
   },
   resolve: {

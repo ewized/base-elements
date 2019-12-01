@@ -3,7 +3,7 @@ import { styles } from '../../utils'
 import style from './icon.scss'
 
 // @ts-ignore
-const BASE_ELEMENTS_FONT_PREFIX = unsafeCSS(window.BASE_ELEMENTS_FONT_PREFIX || 'fonts')
+const BASE_ELEMENTS_FONT_PREFIX = unsafeCSS(window.BASE_ELEMENTS_FONT_PREFIX || 'assets')
 
 @customElement('e-icon')
 @styles(style)

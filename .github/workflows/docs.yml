@@ -1,0 +1,41 @@
+name: Deploy Docs
+
+# Only deploy changes to master branch
+on:
+  push:
+    branches:
+    - 'master'
+    paths:
+    - 'public/**'
+    - 'src/**'
+    - 'package*.json'
+
+jobs:
+  # Build and test the project
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 12
+      - name: npm install, build
+        run: |
+          npm ci
+          npm run build
+        env:
+          CI: true
+
+  # Once the build is successfull deploy to the gh-pages branch
+  github-pages:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - run: find . -name "*" -not -path "./node_modules/*" -not -path "./.git/*"
+      - name: Deploy to GitHub Pages
+        uses: JamesIves/github-pages-deploy-action@3.0.4
+        with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          BASE_BRANCH: master
+          BRANCH: gh-pages
+          FOLDER: public
