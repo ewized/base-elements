@@ -1,0 +1,62 @@
+$positions: 'left', 'right';
+$sidebar-background: #1b486edf;
+$sidebar-border: 1px solid #1c486e;
+$sidebar-header-height: 75px;
+
+.sidebar-opener {
+  text-decoration: none;
+  color: #fff;
+
+  &:focus + aside {
+    @each $pos in $positions {
+      &.#{$pos} {
+        #{$pos}: 0;
+      }
+    }
+  }
+}
+
+aside {
+  --e-sidebar-background: #{$sidebar-background};
+  --e-sidebar-border: #{$sidebar-border};
+  background: var(--e-sidebar-background);
+  position: fixed;
+  z-index: 1001;
+  top: 0;
+  width: 25vw;
+  height: 100vh;
+  transition: left 0.5s, right 0.5s;
+
+  @media (max-width: 1024px) {
+    width: 75vw;
+  }
+
+  // Handle the hover state of each of the postions
+  @each $pos in $positions {
+    &.#{$pos} {
+      border: var(--e-sidebar-border);
+      border-top: none;
+      border-bottom: none;
+      border-#{$pos}: none;
+      #{$pos}: -100vw;
+
+      &:hover {
+        #{$pos}: 0;
+      }
+    }
+  }
+
+  .container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+
+    header, footer {
+      height: var(--e-header-height, $sidebar-header-height);
+    }
+
+    nav {
+      height: 100%;
+    }
+  }
+}

@@ -1,0 +1,36 @@
+$header-height: 75px;
+$header-background: linear-gradient(#307dbf, #418ecf);
+$header-border: 1px solid #1c486e;
+
+:host {
+  --e-header-height: #{$header-height};
+}
+
+header {
+  --e-header-background: #{$header-background};
+  --e-header-border: #{$header-border};
+  top: 0;
+  z-index: 1000;
+
+  .container {
+    height: var(--e-header-height);
+    background: var(--e-header-background);
+    border-bottom: var(--e-header-border);
+    display: flex;
+    width: 100vw;
+  }
+
+  + .placeholder {
+    display: none;
+    height: var(--e-header-height);
+    width: 100%;
+  }
+
+  &.fixed {
+    position: fixed;
+
+    + .placeholder {
+      display: block;
+    }
+  }
+}
