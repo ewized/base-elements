@@ -6,6 +6,7 @@
   "private": false,
   "main": "base_elements.bundle.js",
   "module": "index.js",
+  "types": "index.d.ts",
   "files": [
     "base_elements.bundle.js",
     "base_elements.bundle.js.map",
@@ -25,19 +26,24 @@
     "lit-element": "^2.2.1"
   },
   "devDependencies": {
+    "@types/node": "^12.12.14",
+    "@types/mocha": "^5.2.7",
     "@typescript-eslint/parser": "^2.9.0",
     "css-loader": "^3.2.0",
     "eslint": "^6.7.2",
     "file-loader": "^4.2.0",
+    "ignore-styles": "^5.0.1",
+    "mocha": "^6.2.2",
     "node-sass": "^4.13.0",
     "sass-loader": "^8.0.0",
     "ts-loader": "^6.2.1",
+    "ts-node": "^8.5.4",
     "typescript": "^3.7.2",
     "webpack": "^4.41.2",
     "webpack-cli": "^3.3.9"
   },
   "scripts": {
-    "test": "echo 'No Tests'",
+    "test": "mocha -r ts-node/register -r ignore-styles src/**/*.test.ts",
     "build": "tsc && npm run copyscss && webpack --mode production",
     "dev": "webpack --watch --mode development",
     "lint": "eslint src/**.ts",
@@ -45,6 +51,9 @@
     "package": "npm run build -- -o ./base_elements.bundle.js && cp -R ./lib/* .",
     "prepublish": "npm run lint && npm run package",
     "__release": "npm run lint && npm run build && npm test && npm version patch && git push --tags origin master"
+  },
+  "engines": {
+    "node": ">=13.0.0"
   },
   "keywords": [],
   "author": "ewized",

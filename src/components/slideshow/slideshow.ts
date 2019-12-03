@@ -61,7 +61,7 @@ export default class Slideshow extends LitElement {
   firstUpdated() {
     // Create the interval timer if its greator than 0
     if (this.delay > 0) {
-      this.intervalId = setInterval(async () => {
+      this.intervalId = window.setInterval(async () => {
         if (!this.pause) {
           this.next()
         }
