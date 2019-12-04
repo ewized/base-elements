@@ -29,6 +29,6 @@ export default class Icon extends LitElement {
   }
 
   render() {
-    return html`<i class="fa fa-${this.innerHTML} ${this.attributes.getNamedItem('spin') ? 'fa-spin' : 'fa-static'}"></i>`
+    return html`<i class="fa fa-${this.textContent} ${this.getAttribute('spin') ? 'fa-spin' : 'fa-static'}"></i>`
   }
 }
