@@ -12,7 +12,7 @@ export default class Header extends LitElement {
 
   /** Check if the header is fixed in position or fluid with the page */
   get fixed() {
-      return this.getAttribute('fixed') ? 'fixed' : 'fluid'
+      return this.hasAttribute('fixed') ? 'fixed' : 'fluid'
   }
 
   nav({ link, icon, name }: MenuItem) {

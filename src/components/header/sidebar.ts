@@ -11,7 +11,7 @@ export default class Sidebar extends LitElement {
 
   /** Get the positon that the sidebar should come out of left or right */
   get position() {
-    return this.getAttribute('right') ? 'right' : 'left'
+    return this.hasAttribute('right') ? 'right' : 'left'
   }
 
   nav({ link, icon, name }: MenuItem) {
