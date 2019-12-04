@@ -179,7 +179,7 @@ const fe=e=>t=>"function"==typeof t?((e,t)=>(window.customElements.define(e,t),t
              url("${qe}/fontawesome-webfont.ttf") format("truetype"),
              url("${qe}/fontawesome-webfont.svg#fontawesomeregular") format("svg");
       }
-    `.styleSheet;document.adoptedStyleSheets=[...document.adoptedStyleSheets,e]}render(){return V`<i class="fa fa-${this.textContent} ${this.getAttribute("spin")?"fa-spin":"fa-static"}"></i>`}};var Le=Ie=$e([fe("e-icon"),ye(Ee.a)],Ie),ze=o(7),Ve=o.n(ze);let Me=class extends ge{get actionText(){var e;return(null===(e=this.attributes.getNamedItem("label"))||void 0===e?void 0:e.value)||this.innerHTML}get target(){var e;return(null===(e=this.attributes.getNamedItem("target"))||void 0===e?void 0:e.value)||"_self"}get link(){var e;return null===(e=this.attributes.getNamedItem("link"))||void 0===e?void 0:e.value}render(){return V`
+    `.styleSheet;document.adoptedStyleSheets=[...document.adoptedStyleSheets,e]}render(){return V`<i class="fa fa-${this.textContent} ${this.hasAttribute("spin")?"fa-spin":"fa-static"}"></i>`}};var Le=Ie=$e([fe("e-icon"),ye(Ee.a)],Ie),ze=o(7),Ve=o.n(ze);let Me=class extends ge{get actionText(){var e;return(null===(e=this.attributes.getNamedItem("label"))||void 0===e?void 0:e.value)||this.innerHTML}get target(){var e;return(null===(e=this.attributes.getNamedItem("target"))||void 0===e?void 0:e.value)||"_self"}get link(){var e;return null===(e=this.attributes.getNamedItem("link"))||void 0===e?void 0:e.value}render(){return V`
       <a target=${this.target} href=${this.link} aria-label=${this.actionText}>
         <slot></slot>
       </a>
