@@ -4,7 +4,7 @@ module.exports = {
   mode: 'production',
   devtool: 'source-map',
   entry: {
-    base_elements: './src/index.ts',
+    'base-elements': './src/index.ts',
   },
   output: {
     path: path.resolve(__dirname, 'public/assets'),

@@ -23,14 +23,14 @@ jobs:
           npm test
         env:
           CI: true
-      - run: mkdir out/ && cp public/assets/base_elements.bundle.* out/
+      - run: mkdir out/ && cp public/assets/base-elements.bundle.* out/
       - name: Upload bundle artifact
         uses: actions/upload-artifact@v1.0.0
         with:
-          name: base_elements_bundle
+          name: base-elements-bundle
           path: out/
       - name: Upload lib artifact
         uses: actions/upload-artifact@v1.0.0
         with:
-          name: base_elements_lib
+          name: base-elements-lib
           path: lib/

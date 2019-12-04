@@ -4,11 +4,9 @@
   "description": "This contains styled web components that are used to create websites",
   "repository": "https://github.com/ewized/base-elements",
   "private": false,
-  "main": "base_elements.bundle.js",
+  "main": "base-elements.bundle.js",
   "module": "index.js",
   "files": [
-    "base_elements.bundle.js",
-    "base_elements.bundle.js.map",
     "components/",
     "elements/",
     "layouts/",
@@ -42,7 +40,7 @@
     "dev": "webpack --watch --mode development",
     "lint": "eslint src/**.ts",
     "copyscss": "find ./src -name '**.scss' | awk -F 'src/' '{print \"./src/\"$2, \"./lib/\"$2}' | xargs -n2 cp",
-    "package": "npm run build -- -o ./base_elements.bundle.js && cp -R ./lib/* .",
+    "package": "npm run build -- -o ./base-elements.bundle.js && cp -R ./lib/* .",
     "prepublish": "npm run lint && npm run package",
     "__release": "npm run lint && npm run build && npm test && npm version patch && git push --tags origin master"
   },
