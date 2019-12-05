@@ -50,15 +50,17 @@ aside {
     height: 100vh;
     overflow: hidden;
 
-    header, footer {
+    %header-footer {
       height: var(--e-header-height, $sidebar-header-height);
     }
 
     header {
+      @extend %header-footer;
       box-shadow: 0 0 50px var(--e-sidebar-background);
     }
 
     footer {
+      @extend %header-footer;
       margin-bottom: var(--e-header-height, $sidebar-header-height);
     }
 
