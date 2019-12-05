@@ -1,9 +1,7 @@
 @import '~code-prettify/loader/prettify';
 
 li {
-  list-style-type: decimal !important;
-
   &.L0, &.L1, &.L2, &.L3, &.L5, &.L6, &.L7, &.L8 {
-    list-style-type: decimal !important;
+    list-style-type: decimal;
   }
 }
