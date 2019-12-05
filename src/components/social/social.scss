@@ -1,10 +1,20 @@
 $social-size: 75px;
-$social-padding: 10px;
+$social-padding: 15px;
+$social-colors:
+  "facebook" #3b5998,
+  "twitter" #55acee,
+  "github" #000,
+  "linkedin" #0e76a8,
+  "youtube" #cd201f,
+  ;
 
-a {
+:host {
   --e-social-size: #{$social-size};
   --e-social-padding: #{$social-padding};
   --e-size: calc(var(--e-social-size) - var(--e-social-padding));
+}
+
+a {
   display: inline-block;
   height: var(--e-size);
   width: var(--e-size);
@@ -17,26 +27,29 @@ a {
 
   e-icon {
     display: inline;
-    font-size: var(--e-size);
+    font-size: calc(var(--e-social-size) / 1.5);
   }
 }
 
-.facebook {
-  background: #3b5998 !important
-}
+@each $social, $color in $social-colors {
+  .#{$social} {
+    --e-social-color: #{$color};
 
-.twitter {
-  background: #55acee !important
-}
+    &.square {
+      background-color: var(--e-social-color);
+    }
 
-.github {
-  background: #000 !important
-}
+    &.round {
+      background-color: var(--e-social-color);
+      border-radius: var(--e-size);
+    }
 
-.linkedin {
-  background: #0e76a8 !important
-}
-
-.youtube {
-  background: #cd201f !important
+    &.outline {
+      $outline: 3px;
+      border: $outline solid var(--e-social-color);
+      padding: calc(var(--e-social-padding) - #{$outline});
+      color: var(--e-social-color);
+      background-color: transparent;
+    }
+  }
 }

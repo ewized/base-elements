@@ -1,6 +1,7 @@
 span.wrapper {
   --tooltip-color: #666;
   position: relative;
+  display: inline-block;
 
   // Tooltip content
   > slot[name="tooltip"] {

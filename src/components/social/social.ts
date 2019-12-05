@@ -53,11 +53,21 @@ export default class Social extends LitElement {
     return customSize ? `--e-social-size: ${customSize}` : ''
   }
 
+  /** Is the social icon rounded or square */
+  get rounded() {
+    return this.hasAttribute('round') ? 'round' : 'square'
+  }
+
+  /** Is the social icon outlined or filled */
+  get outline() {
+    return this.hasAttribute('outline') ? 'outline' : 'filled'
+  }
+
   render() {
     let { icon, clazz } = this.social
     return html`
       <e-tooltip value="${this.tooltip}">
-        <a class="${clazz}" style="${this.size}" rel="nofollow" target="_blank" href="${this.link}" aria-label="${this.tooltip}">
+        <a class="${clazz} ${this.rounded} ${this.outline}" style="${this.size}" rel="nofollow" target="_blank" href="${this.link}" aria-label="${this.tooltip}">
           <e-icon>${icon}</e-icon>
         </a>
       </e-tooltip>
