@@ -1,3 +1,5 @@
+@import '../../theme';
+
 $positions: 'left', 'right';
 $sidebar-background: #1b486edf;
 $sidebar-border: 1px solid #1c486e;
@@ -73,6 +75,7 @@ aside {
 
   nav {
     a {
+      @extend %text-overflow;
       position: relative;
       display: block;
       width: 100%;
@@ -85,9 +88,6 @@ aside {
       text-decoration: none;
       height: 50px;
       line-height: 50px;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      white-space: nowrap;
 
       &:hover {
         background: #ffffff33;

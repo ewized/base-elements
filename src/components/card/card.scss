@@ -10,7 +10,8 @@ e-paper {
     align-items: center;
     color: #777;
 
-    h3 {
+    > h3 {
+      @extend %text-overflow;
       color: $text-primary-color;
       font-size: 18px;
       margin: auto 2px;

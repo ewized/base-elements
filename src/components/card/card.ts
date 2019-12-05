@@ -15,7 +15,7 @@ export default class Card extends LitElement {
       <e-paper>
         <header>
           <slot name="left-icon"></slot>
-          <h3 class="text-overflow" title=${this.header}>
+          <h3 title=${this.header}>
             <slot name="header">${this.header}</slot>
           </h3>
           <slot name="right-icon"></slot>
