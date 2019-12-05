@@ -1,7 +1,11 @@
+:host {
+  line-height: 0;
+  display: inline-block;
+}
+
 span.wrapper {
   --tooltip-color: #666;
   position: relative;
-  display: inline-block;
 
   // Tooltip content
   > slot[name="tooltip"] {
@@ -18,6 +22,7 @@ span.wrapper {
       padding: 2px 5px;
       color: #fff;
       font-size: 14px;
+      line-height: 1.5;
     }
   }
 
@@ -33,6 +38,7 @@ span.wrapper {
   // Show elements when hovered
   &:hover, &:focus {
     &:before, slot[name="tooltip"] {
+      line-height: 1.5;
       display: block;
       animation: fade 0.15s;
     }

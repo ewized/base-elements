@@ -1,7 +1,2 @@
 $fa-font-path : "~font-awesome/fonts";
 @import '~font-awesome/scss/font-awesome';
-
-i.fa {
-  color: var(--icon-color, inherit);
-  display: inline-block;
-}

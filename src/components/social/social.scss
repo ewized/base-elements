@@ -1,6 +1,6 @@
 $social-size: 75px;
-$social-padding: 15px;
 $social-colors:
+  "custom" #567,
   "facebook" #3b5998,
   "twitter" #55acee,
   "github" #000,
@@ -9,25 +9,22 @@ $social-colors:
   ;
 
 :host {
-  --e-social-size: #{$social-size};
-  --e-social-padding: #{$social-padding};
-  --e-size: calc(var(--e-social-size) - var(--e-social-padding));
+  display: inline-flex;
+  line-height: 0;
 }
 
-a {
-  display: inline-block;
-  height: var(--e-size);
-  width: var(--e-size);
-  padding: var(--e-social-padding);
-  color: #fff;
-  text-decoration: none;
-  line-height: var(--e-size);
-  text-align: center;
-  overflow: hidden;
+e-tooltip {
+  --e-social-size: #{$social-size};
+  display: flex;
 
-  e-icon {
-    display: inline;
-    font-size: calc(var(--e-social-size) / 1.5);
+  a {
+    display: flex;
+    color: #fff;
+    font-size: calc(var(--e-social-size) / 1.75);
+    height: var(--e-social-size);
+    width: var(--e-social-size);
+    align-items: center;
+    justify-content: center;
   }
 }
 
@@ -41,15 +38,23 @@ a {
 
     &.round {
       background-color: var(--e-social-color);
-      border-radius: var(--e-size);
+      border-radius: var(--e-social-size);
+
+      a {
+        border-radius: var(--e-social-size);
+      }
     }
 
     &.outline {
       $outline: 3px;
-      border: $outline solid var(--e-social-color);
-      padding: calc(var(--e-social-padding) - #{$outline});
-      color: var(--e-social-color);
       background-color: transparent;
+
+      a {
+        border: $outline solid var(--e-social-color);
+        height: calc(var(--e-social-size) - #{$outline * 2});
+        width: calc(var(--e-social-size) - #{$outline * 2});
+        color: var(--e-social-color);
+      }
     }
   }
 }
