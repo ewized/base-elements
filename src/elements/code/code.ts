@@ -9,7 +9,7 @@ import 'code-prettify'
 export default class Code extends LitElement {
 
   render() {
-    let pretty = PR.prettyPrintOne(this.innerHTML, this.attributes.getNamedItem('language')?.value, this.attributes.getNamedItem('lineNumbers') && true)
+    let pretty = PR.prettyPrintOne(this.innerHTML, this.getAttribute('language'), this.hasAttribute('lineNumbers'))
     return html`<e-preformat><code>${unsafeHTML(pretty)}</code></e-preformat>`
   }
 }

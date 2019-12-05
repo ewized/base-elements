@@ -1,5 +1,5 @@
 import { LitElement, html, customElement } from 'lit-element'
-import { styles } from '../../utils'
+import { styles, notNull } from '../../utils'
 import style from './card.scss'
 
 @customElement('e-card')
@@ -7,7 +7,7 @@ import style from './card.scss'
 export default class Card extends LitElement {
 
   get header() {
-    return this.attributes.getNamedItem('header')?.value
+    return notNull(this.getAttribute('header'), 'header attribute is required for card')
   }
 
   render() {

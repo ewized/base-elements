@@ -2,7 +2,7 @@ import { LitElement, html, customElement, property } from 'lit-element'
 import { styles } from '../../utils'
 import style from './slideshow.scss'
 
-export const DEFAULT_DELAY = 5000
+export const DEFAULT_DELAY = 0
 
 @customElement('e-slideshow')
 @styles(style)
@@ -10,9 +10,9 @@ export default class Slideshow extends LitElement {
   intervalId = -1
   index = 0
   length = this.children?.length || 0
-  delay = Number(this.attributes.getNamedItem('delay')?.value || DEFAULT_DELAY)
+  delay = Number(this.getAttribute('delay') || DEFAULT_DELAY)
   @property() image = this.children[0]?.cloneNode()
-  @property() pause = !(this.attributes.getNamedItem('autoPlay') && true)
+  @property() pause = !this.hasAttribute('autoPlay')
 
   async next() {
     let i = this.index
@@ -79,12 +79,12 @@ export default class Slideshow extends LitElement {
 
   render() {
     return html`
-      <div class="slideshow" style=${this.attributes.getNamedItem('style')?.value}>
+      <div class="slideshow" style=${this.getAttribute('style')}>
         <content>
           <div class="image">${this.image}</div>
-          <nav class=${this.attributes.getNamedItem('hideControls') ? 'hide' : 'show'}>
+          <nav class=${this.hasAttribute('hideControls') ? 'hide' : 'show'}>
             <div class="items">
-              ${[ ...Array(this.length).keys() ].map(i => {
+              ${[ ...new Array(this.length).keys() ].map(i => {
                 // Current index item is the play pause toggle
                 if (i === this.index) {
                   // When there is no delay just show static images like a presentation

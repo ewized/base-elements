@@ -10,8 +10,8 @@ export default class FlexBox extends LitElement {
   updated() {
     let content = <HTMLElement|null> this.shadowRoot?.children[0]
     if (content) {
-      content.style.flexDirection = this.attributes.getNamedItem('column') ? 'column' : 'row'
-      content.style.flexWrap = this.attributes.getNamedItem('wrap') ? 'wrap' : 'nowrap'
+      content.style.flexDirection = this.hasAttribute('column') ? 'column' : 'row'
+      content.style.flexWrap = this.hasAttribute('wrap') ? 'wrap' : 'nowrap'
     }
   }
 

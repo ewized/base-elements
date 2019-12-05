@@ -5,9 +5,9 @@ import { LitElement, html, customElement } from 'lit-element'
 export default class FlexItem extends LitElement {
   /** Add flex properties on self */
   updated() {
-    this.style.flexGrow = this.attributes.getNamedItem('grow')?.value || '1'
-    this.style.flexShrink = this.attributes.getNamedItem('grow')?.value || '1'
-    this.style.order = this.attributes.getNamedItem('order')?.value || '0'
+    this.style.flexGrow = this.getAttribute('grow') || '1'
+    this.style.flexShrink = this.getAttribute('grow') || '1'
+    this.style.order = this.getAttribute('order') || '0'
   }
 
   render() {

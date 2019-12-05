@@ -16,7 +16,7 @@ export default class Sidebar extends LitElement {
 
   nav({ link, icon, name }: MenuItem) {
     return html`
-      <a href="${link}">
+      <a href="${link}" aria-label=${name}>
         <e-icon>${icon}</e-icon>
         <span>${name}</span>
       </a>
@@ -25,10 +25,10 @@ export default class Sidebar extends LitElement {
 
   render() {
     return html`
-      <a href="#!" rel="nofollow" class="sidebar-opener">
+      <a href="#!" rel="nofollow" class="sidebar-opener" aria-label="Sidebar">
         <e-icon slot="button">bars</e-icon>
       </a>
-      <aside class="${this.position}">
+      <aside class=${this.position}>
         <div class="container">
           <header>
             <slot name="header"></slot>

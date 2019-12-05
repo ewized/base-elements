@@ -1,5 +1,5 @@
 import { LitElement, html, customElement } from 'lit-element'
-import { styles } from '../../utils'
+import { styles, notNull } from '../../utils'
 import style from './link.scss'
 
 @customElement('e-link')
@@ -7,16 +7,16 @@ import style from './link.scss'
 export default class Link extends LitElement {
   /** Generate the action text for the link */
   get actionText() {
-    return this.attributes.getNamedItem('label')?.value || this.innerHTML
+    return this.getAttribute('label') || this.textContent
   }
 
   /** Get the target of the link */
   get target() {
-    return this.attributes.getNamedItem('target')?.value || '_self'
+    return this.getAttribute('target') || '_self'
   }
 
   get link() {
-    return this.attributes.getNamedItem('link')?.value
+    return notNull(this.getAttribute('link'), 'link attribute is required')
   }
 
   render() {

@@ -26,7 +26,7 @@ export default class Header extends LitElement {
 
   render() {
     return html`
-      <header class="${this.fixed}">
+      <header class=${this.fixed}>
         <div class="container">
           <e-sidebar>
             ${[ ...this.children ]}
