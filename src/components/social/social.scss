@@ -1,6 +1,8 @@
+@import "../../theme";
+
 $social-size: 75px;
 $social-colors:
-  "custom" #567,
+  "custom" $theme-color,
   "facebook" #3b5998,
   "twitter" #55acee,
   "github" #000,
@@ -16,6 +18,7 @@ $social-colors:
 e-tooltip {
   --e-social-size: #{$social-size};
   display: flex;
+  background-color: var(--e-social-color);
 
   a {
     display: flex;
@@ -29,32 +32,31 @@ e-tooltip {
 }
 
 @each $social, $color in $social-colors {
+  // Set the social network color or default color
   .#{$social} {
     --e-social-color: #{$color};
+  }
 
-    &.square {
-      background-color: var(--e-social-color);
-    }
+  // Make the icon round defaults to square
+  .round {
+    background-color: var(--e-social-color);
+    border-radius: var(--e-social-size);
 
-    &.round {
-      background-color: var(--e-social-color);
+    a {
       border-radius: var(--e-social-size);
-
-      a {
-        border-radius: var(--e-social-size);
-      }
     }
+  }
 
-    &.outline {
-      $outline: 3px;
-      background-color: transparent;
+  // Have the social icon have a outline and make the icon the same color
+  .outline {
+    $outline: 3px;
+    background-color: transparent;
 
-      a {
-        border: $outline solid var(--e-social-color);
-        height: calc(var(--e-social-size) - #{$outline * 2});
-        width: calc(var(--e-social-size) - #{$outline * 2});
-        color: var(--e-social-color);
-      }
+    a {
+      border: $outline solid var(--e-social-color);
+      height: calc(var(--e-social-size) - #{$outline * 2});
+      width: calc(var(--e-social-size) - #{$outline * 2});
+      color: var(--e-social-color);
     }
   }
 }
