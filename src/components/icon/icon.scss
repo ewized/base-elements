@@ -3,4 +3,5 @@ $fa-font-path : "~font-awesome/fonts";
 
 i.fa {
   color: var(--icon-color, inherit);
+  display: inline-block;
 }

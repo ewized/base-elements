@@ -1,0 +1,42 @@
+$social-size: 75px;
+$social-padding: 10px;
+
+a {
+  --e-social-size: #{$social-size};
+  --e-social-padding: #{$social-padding};
+  --e-size: calc(var(--e-social-size) - var(--e-social-padding));
+  display: inline-block;
+  height: var(--e-size);
+  width: var(--e-size);
+  padding: var(--e-social-padding);
+  color: #fff;
+  text-decoration: none;
+  line-height: var(--e-size);
+  text-align: center;
+  overflow: hidden;
+
+  e-icon {
+    display: inline;
+    font-size: var(--e-size);
+  }
+}
+
+.facebook {
+  background: #3b5998 !important
+}
+
+.twitter {
+  background: #55acee !important
+}
+
+.github {
+  background: #000 !important
+}
+
+.linkedin {
+  background: #0e76a8 !important
+}
+
+.youtube {
+  background: #cd201f !important
+}

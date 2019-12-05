@@ -21,3 +21,11 @@ export function styles(...styles: Array<any>) {
     // }
   }
 }
+
+/** Check if the value is null if so throw error with the message */
+export const notNull = (value: any, message: string = 'The value was null') => {
+  if (value) {
+    return value
+  }
+  throw new Error(message)
+}
