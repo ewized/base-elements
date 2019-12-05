@@ -16,10 +16,10 @@ export default class Sidebar extends LitElement {
 
   nav({ link, icon, name }: MenuItem) {
     return html`
-      <e-link link="${link}">
+      <a href="${link}">
         <e-icon>${icon}</e-icon>
-        ${name}
-      </e-link>
+        <span>${name}</span>
+      </a>
     `
   }
 
@@ -33,12 +33,12 @@ export default class Sidebar extends LitElement {
           <header>
             <slot name="header"></slot>
           </header>
-          <nav>
-            ${(<Array<MenuItem>>[ ...this.children ]).map(this.nav)}
-          </nav>
-          <footer>
-            <slot name="footer"></slot>
-          </footer>
+          <div class="scroll">
+            <nav>${(<Array<MenuItem>>[ ...this.children ]).map(this.nav)}</nav>
+            <footer>
+              <slot name="footer"></slot>
+            </footer>
+          </div>
         </div>
       </aside>
     `

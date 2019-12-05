@@ -47,16 +47,69 @@ aside {
   }
 
   .container {
-    display: flex;
-    flex-direction: column;
     height: 100vh;
+    overflow: hidden;
 
     header, footer {
       height: var(--e-header-height, $sidebar-header-height);
     }
 
-    nav {
+    header {
+      box-shadow: 0 0 50px var(--e-sidebar-background);
+    }
+
+    footer {
+      margin-bottom: var(--e-header-height, $sidebar-header-height);
+    }
+
+    .scroll {
+      overflow-x: hidden;
+      overflow-y: auto;
       height: 100%;
+    }
+  }
+
+  nav {
+    a {
+      position: relative;
+      display: block;
+      width: 100%;
+      color: #fff;
+      background: #ffffff55;
+      border: 1px solid #dddddd55;
+      border-left: none;
+      border-right: none;
+      margin: 3px 0;
+      text-decoration: none;
+      height: 50px;
+      line-height: 50px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+
+      &:hover {
+        background: #ffffff33;
+        border-color: #dddddd33;
+      }
+
+      &:focus, &:active {
+        span {
+          color: #dedede;
+          border-bottom: 1px dashed #ddd;
+        }
+      }
+
+      span {
+        font-size: 18px;
+        margin-left: 55px;
+      }
+
+      e-icon {
+        font-size: 24px;
+        position: absolute;
+        width: 50px;
+        text-align: center;
+      }
     }
   }
 }
