@@ -9,11 +9,10 @@ a {
   }
 
   &:hover {
-    color: var(--color-hover, #000);
+    border-bottom: 1px dotted var(--color-hover, #111);
   }
 
   &:active, &:focus {
-    color: var(--color-hover, #111);
-    border-bottom: 1px dotted var(--color-hover, #111);
+    color: var(--color-hover, #000);
   }
 }

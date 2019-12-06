@@ -1,7 +1,7 @@
 $theme-color: #455;
 
 $background-color: #efefef;
-$text-color: #000000aa;
+$text-color: #000000bc;
 $text-primary-color: #337ab7;
 
 $paper-border-color: #ccc;
@@ -23,7 +23,6 @@ $paper-shadow-color: #00000033;
 }
 
 %overflow {
-  white-space: nowrap;
   word-wrap: normal;
   overflow: auto;
 }

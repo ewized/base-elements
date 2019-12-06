@@ -1,0 +1,25 @@
+@import "../../elements/preformat/preformat";
+
+:host {
+  color: $text-color;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  padding: 0;
+}
+
+code {
+  background-color: #f1f1f1;
+  padding: 3px 5px;
+  border-radius: 3px;
+}
+
+a {
+  color: #000;
+  text-decoration: none;
+
+  &:hover {
+    border-bottom: 1px dotted $text-color;
+  }
+}
