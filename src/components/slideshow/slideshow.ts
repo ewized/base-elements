@@ -58,7 +58,8 @@ export default class Slideshow extends LitElement {
     }
   }
 
-  firstUpdated() {
+  connectedCallback() {
+    super.connectedCallback()
     // Create the interval timer if its greator than 0
     if (this.delay > 0) {
       this.intervalId = window.setInterval(async () => {
