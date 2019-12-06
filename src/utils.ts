@@ -29,3 +29,6 @@ export const notNull = (value: any, message: string = 'The value was null') => {
   }
   throw new Error(message)
 }
+
+/** Used to replate a sleep function in an async call used for debugging */
+export const sleep = async (time: number) => new Promise(resolve => window.setTimeout(resolve, time))
