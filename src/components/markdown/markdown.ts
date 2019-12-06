@@ -1,4 +1,4 @@
-import { LitElement, html, customElement } from 'lit-element'
+import { LitElement, html, customElement, property } from 'lit-element'
 import { unsafeHTML } from 'lit-html/directives/unsafe-html.js'
 import { Converter } from 'showdown'
 import { styles } from '../../utils'
@@ -16,12 +16,24 @@ export default class Markdown extends LitElement {
     requireSpaceBeforeHeadingText: false,
     backslashEscapesHTMLTags: true,
   })
+  /** Default to the innerhtml wraped in a div tag with word-wrap: pre */
+  @property() markdown = `<div class="pre">${this.innerHTML}</div>`
 
-  get markdown() {
-    return this.textContent || ''
+  connectedCallback() {
+    super.connectedCallback()
+    this.makeHtml()
+  }
+
+  /** Take the content and make it html */
+  async makeHtml() {
+    return new Promise((resolve: (value: string) => void) => {
+      window.setTimeout(() => {
+        resolve(Markdown.converter.makeHtml(this.textContent || ''))
+      })
+    }).then(markdownHtml => this.markdown = markdownHtml)
   }
 
   render() {
-    return html`${unsafeHTML(Markdown.converter.makeHtml(this.markdown))}`
+    return html`${unsafeHTML(this.markdown)}`
   }
 }
