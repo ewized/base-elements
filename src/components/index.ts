@@ -1,5 +1,6 @@
 export { Badge } from './badge'
 export { Card } from './card'
+export { Code } from './code'
 export { Header } from './header'
 export { Highlight } from './highlight'
 export { Markdown } from './markdown'

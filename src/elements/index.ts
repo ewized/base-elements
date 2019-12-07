@@ -1,5 +1,4 @@
 export { Button } from './button'
-export { Code } from './code'
 export { Image } from './image'
 export { Link } from './link'
 export { Preformat } from './preformat'
