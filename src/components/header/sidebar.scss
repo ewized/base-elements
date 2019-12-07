@@ -76,6 +76,7 @@ aside {
   nav {
     a {
       @extend %text-overflow;
+      text-align: left;
       position: relative;
       display: block;
       width: 100%;

@@ -16,7 +16,7 @@ export default class Sidebar extends LitElement {
 
   nav({ link, icon, name }: MenuItem) {
     return html`
-      <a href="${link}" aria-label=${name}>
+      <a href=${link} aria-label=${name}>
         <e-icon>${icon}</e-icon>
         <span>${name}</span>
       </a>

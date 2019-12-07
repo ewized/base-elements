@@ -1,6 +1,10 @@
+@import "../../theme";
+
 $header-height: 75px;
 $header-background: linear-gradient(#307dbf, #418ecf);
 $header-border: 1px solid #1c486e;
+$sidebar-show: 500px;
+$reduce-menu: 768px;
 
 :host {
   --e-header-height: #{$header-height};
@@ -16,8 +20,115 @@ header {
     height: var(--e-header-height);
     background: var(--e-header-background);
     border-bottom: var(--e-header-border);
-    display: flex;
+    display: grid;
     width: 100vw;
+    align-items: center;
+    grid-template-columns: 200px auto;
+
+    @media (max-width: $sidebar-show) {
+      grid-template-columns: var(--e-header-height) 200px;
+    }
+
+    e-sidebar {
+      text-align: center;
+      font-size: 28px;
+      padding: 5px;
+      border-radius: 5px;
+      display: none;
+
+      @media (max-width: $sidebar-show) {
+        display: inline-block;
+      }
+    }
+
+    .logo {
+      margin-left: 25px;
+
+      @media (max-width: $sidebar-show) {
+        margin-left: 0;
+      }
+
+      h1 {
+        color: #fff;
+        font-size: 24px;
+      }
+    }
+
+    nav {
+      margin: 0 20px;
+      justify-self: end;
+
+      @media (max-width: $sidebar-show) {
+        display: none;
+      }
+
+      a {
+        position: relative;
+        color: #fff;
+        margin: 0 10px;
+        padding: 10px;
+        border-radius: 5px;
+        text-decoration: none;
+        overflow: visible;
+
+        @media (max-width: $reduce-menu) {
+          display: inline-flex;
+          justify-content: center;
+          align-items: center;
+          height: calc(var(--e-header-height) / 1.5);
+          width: calc(var(--e-header-height) / 1.5);
+          padding: 0;
+          margin: 0 5px;
+
+          span {
+            display: none;
+          }
+
+          e-icon {
+            padding: 0;
+          }
+
+          &:hover {
+            // Arrow
+            &:before {
+              position: absolute;
+              height: 0;
+              width: 0;
+              content: '';
+              top: 100%;
+              left: auto;
+              margin-top: 3px;
+              // Triangle
+              border-left: 5px solid transparent;
+              border-right: 5px solid transparent;
+              border-bottom: 5px solid #666;
+            }
+
+            span {
+              top: 100%;
+              margin-top: 7px;
+              padding: 3px 5px;
+              border-radius: 3px;
+              background-color: #666;
+              display: block;
+              position: absolute;
+            }
+          }
+        }
+
+        span {
+          @extend %text-overflow;
+        }
+
+        e-icon {
+          padding: 0 5px;
+        }
+
+        &:hover {
+          background-color: #ffffff33;
+        }
+      }
+    }
   }
 
   + .placeholder {

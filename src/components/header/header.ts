@@ -17,10 +17,10 @@ export default class Header extends LitElement {
 
   nav({ link, icon, name }: MenuItem) {
     return html`
-      <e-link link="${link}">
+      <a href=${link} aria-label=${name}>
         <e-icon>${icon}</e-icon>
-        ${name}
-      </e-link>
+        <span>${name}</span>
+      </a>
     `
   }
 
@@ -31,9 +31,14 @@ export default class Header extends LitElement {
           <e-sidebar>
             ${[ ...this.children ]}
           </e-sidebar>
-          <div>
-            ${(<Array<MenuItem>>[ ...this.children ]).filter(e => !e.isSidebarOnly).map(this.nav)}
+          <div class="logo">
+            <slot name="logo">
+              <h1>Base Elements</h1>
+            </slot>
           </div>
+          <nav>
+            ${(<Array<MenuItem>>[ ...this.children ]).filter(e => !e.isSidebarOnly).map(this.nav)}
+          </nav>
         </div>
       </header>
       <div class="placeholder"></div>
