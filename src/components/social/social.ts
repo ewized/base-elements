@@ -37,7 +37,7 @@ export default class Social extends LitElement {
   /** If there is a custom size set it to that using css variables */
   get size() {
     let customSize = this.getAttribute('size')
-    return customSize ? `--e-social-size: ${customSize}${customSize.match(/[a-z]+/g) ? '' : 'px'};` : ''
+    return customSize ? `--e-social-size: ${customSize}${customSize.match(/[a-z]+$/) ? '' : 'px'};` : ''
   }
 
   /** Get the custom color of the icon */
