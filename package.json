@@ -32,6 +32,7 @@
     "node-sass": "^4.13.0",
     "sass-loader": "^8.0.0",
     "serialize-javascript": ">=2.1.1",
+    "serve": "^11.2.0",
     "ts-loader": "^6.2.1",
     "typescript": "^3.7.2",
     "webpack": "^4.41.2",
@@ -39,6 +40,7 @@
   },
   "scripts": {
     "test": "echo 'No Tests'",
+    "serve": "serve public/",
     "build": "tsc && npm run copyscss && webpack --mode production",
     "dev": "webpack --watch --mode development",
     "lint": "eslint src/**.ts",

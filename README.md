@@ -28,7 +28,7 @@ This folder is used to demo the components as well as develop the components.
 Just serve the `public/` folder from a standard http server, after you ran the command above.
 GitHub Pages will host the bundled version for demoing the master branch.
 For serving locally use [Web Server for Chrome](https://chrome.google.com/webstore/detail/web-server-for-chrome/ofhbbkphhbklhfoeikjpcbhemlocgigb/related?hl=en).
-Or you could install `npm install -g serve` and then run `serve public/`.
+Or you could run `npm run serve`.
 
 ## License
 
