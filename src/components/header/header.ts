@@ -42,6 +42,7 @@ export default class Header extends LitElement {
           <e-sidebar>
             <span slot="header">${this.sidebarHeader}</span>
             ${[ ...this.children ].filter(e => e instanceof MenuItem)}
+            ${[ ...this.children ].filter(e => e.getAttribute('slot') === 'footer')}
           </e-sidebar>
           <div class="logo">
             <slot name="logo">

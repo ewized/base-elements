@@ -39,7 +39,7 @@ span.wrapper {
   &:hover, &:focus {
     &:before, slot[name="tooltip"] {
       line-height: 1.5;
-      display: block;
+      display: inline-flex;
       animation: fade 0.15s;
     }
   }

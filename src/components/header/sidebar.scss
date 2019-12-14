@@ -72,12 +72,17 @@ aside {
     footer {
       @extend %header-footer;
       margin-bottom: var(--e-header-height, $sidebar-header-height);
+      bottom: 0;
     }
 
     .scroll {
       overflow-x: hidden;
       overflow-y: auto;
       height: 100%;
+
+      &::-webkit-scrollbar {
+        display: none;
+      }
     }
   }
 
