@@ -59,6 +59,14 @@ aside {
     header {
       @extend %header-footer;
       box-shadow: 0 0 50px var(--e-sidebar-background);
+      line-height: var(--e-header-height);
+
+      ::slotted(span) {
+        @extend %text-overflow;
+        color: #fff;
+        font-size: 24px;
+        font-weight: bold;
+      }
     }
 
     footer {

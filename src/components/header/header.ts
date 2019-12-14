@@ -15,6 +15,17 @@ export default class Header extends LitElement {
       return this.hasAttribute('fixed') ? 'fixed' : 'fluid'
   }
 
+  /** Header title */
+  get header() {
+    return html`${this.getAttribute('header') ?? 'Base Elements'}`
+  }
+
+  /** Get the sidebar logo slotted item or header attribute */
+  get sidebarHeader() {
+    let logo = [ ...this.children ].filter(e => e.getAttribute('slot') === 'logo').map(e => e.cloneNode(true))
+    return logo.length > 0 ? logo : this.header
+  }
+
   nav({ link, icon, name }: MenuItem) {
     return html`
       <a href=${link} aria-label=${name}>
@@ -29,15 +40,16 @@ export default class Header extends LitElement {
       <header class=${this.fixed}>
         <div class="container">
           <e-sidebar>
-            ${[ ...this.children ]}
+            <span slot="header">${this.sidebarHeader}</span>
+            ${[ ...this.children ].filter(e => e instanceof MenuItem)}
           </e-sidebar>
           <div class="logo">
             <slot name="logo">
-              <h1>Base Elements</h1>
+              <h1>${this.header}</h1>
             </slot>
           </div>
           <nav>
-            ${(<Array<MenuItem>>[ ...this.children ]).filter(e => !e.isSidebarOnly).map(this.nav)}
+            ${(<Array<MenuItem>>[ ...this.children ]).filter(e => e instanceof MenuItem).filter(e => !e.isSidebarOnly).map(this.nav)}
           </nav>
         </div>
       </header>

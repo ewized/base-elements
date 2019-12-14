@@ -34,7 +34,7 @@ export default class Sidebar extends LitElement {
             <slot name="header"></slot>
           </header>
           <div class="scroll">
-            <nav>${(<Array<MenuItem>>[ ...this.children ]).map(this.nav)}</nav>
+            <nav>${(<Array<MenuItem>>[ ...this.children ]).filter(e => e instanceof MenuItem).map(this.nav)}</nav>
             <footer>
               <slot name="footer"></slot>
             </footer>
