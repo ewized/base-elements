@@ -10,8 +10,8 @@ em {
   font-style: normal;
 
   ::slotted(*) {
-    --color: #efefef;
-    --color-hover: #eee;
-    --color-active: #fff;
+    --link-color: #efefef;
+    --link-border-hover: 1px dotted #eee;
+    --link-color-active: #fff;
   }
 }

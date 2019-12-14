@@ -1,9 +1,16 @@
 @import '../../theme';
+@import '../../mixins';
 
 $positions: 'left', 'right';
 $sidebar-background: #1b486edf;
 $sidebar-border: 1px solid #1c486e;
-$sidebar-header-height: 75px;
+$sidebar-header-height: 75px;  // This is the backup if it cant find --e-header-height
+
+:host {
+  @include var(sidebar-background, $sidebar-background);
+  @include var(sidebar-border, $sidebar-border);
+  @include var(header-height, $sidebar-header-height);
+}
 
 .sidebar-opener {
   text-decoration: none;
@@ -19,9 +26,7 @@ $sidebar-header-height: 75px;
 }
 
 aside {
-  --e-sidebar-background: #{$sidebar-background};
-  --e-sidebar-border: #{$sidebar-border};
-  background: var(--e-sidebar-background);
+  background: var(--sidebar-background);
   position: fixed;
   z-index: 1001;
   top: 0;
@@ -36,7 +41,7 @@ aside {
   // Handle the hover state of each of the postions
   @each $pos in $positions {
     &.#{$pos} {
-      border: var(--e-sidebar-border);
+      border: var(--sidebar-border);
       border-top: none;
       border-bottom: none;
       border-#{$pos}: none;
@@ -53,13 +58,13 @@ aside {
     overflow: hidden;
 
     %header-footer {
-      height: var(--e-header-height, $sidebar-header-height);
+      height: var(--header-height);
     }
 
     header {
       @extend %header-footer;
-      box-shadow: 0 0 50px var(--e-sidebar-background);
-      line-height: var(--e-header-height);
+      box-shadow: 0 0 50px var(--sidebar-background);
+      line-height: var(--header-height);
 
       ::slotted(span) {
         @extend %text-overflow;
@@ -71,7 +76,7 @@ aside {
 
     footer {
       @extend %header-footer;
-      margin-bottom: var(--e-header-height, $sidebar-header-height);
+      margin-bottom: var(--header-height);
       bottom: 0;
     }
 

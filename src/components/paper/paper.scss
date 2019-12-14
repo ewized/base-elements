@@ -1,9 +1,17 @@
 @import '../../theme';
+@import '../../mixins';
+
+:host {
+  @include var(paper-background, #fff);
+  @include var(paper-color, $text-color);
+  @include var(paper-border, 1px solid $paper-border-color);
+  @include var(paper-shadow, 0 0 5px $paper-shadow-color);
+}
 
 div {
-  background-color: #fff;
-  color: $text-color;
+  background: var(--paper-background);
+  color: var(--paper-color);
   margin: 10px;
-  border: 1px solid $paper-border-color;
-  box-shadow: 0 0 5px $paper-shadow-color;
+  border: var(--paper-border);
+  box-shadow: var(--paper-shadow);
 }

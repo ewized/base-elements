@@ -1,18 +1,25 @@
 @import '../../theme';
+@import '../../mixins';
+
+:host {
+  @include var(link-color, $text-color);
+  @include var(link-color-active, #000);
+  @include var(link-border-hover, 1px dotted $text-color);
+}
 
 a {
-  color: var(--color, $text-color);
+  color: var(--link-color);
   text-decoration: none;
 
   &:visited {
-    color: $text-color;
+    color: var(--link-color);
   }
 
   &:hover {
-    border-bottom: 1px dotted var(--color-hover, #111);
+    border-bottom: var(--link-border-hover);
   }
 
   &:active, &:focus {
-    color: var(--color-hover, #000);
+    color: var(--link-color-active);
   }
 }

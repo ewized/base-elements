@@ -1,4 +1,5 @@
-@import "../../theme";
+@import '../../theme';
+@import '../../mixins';
 
 $header-height: 75px;
 $header-background: linear-gradient(#307dbf, #418ecf);
@@ -7,26 +8,31 @@ $sidebar-show: 500px;
 $reduce-menu: 768px;
 
 :host {
-  --e-header-height: #{$header-height};
+  @include var(header-height, $header-height);
+  @include var(header-background, $header-background);
+  @include var(header-border, $header-border);
+  @include var(header-logo-color, #fff);
+  @include var(header-nav-color, #fff);
+  @include var(header-nav-background-hover, #ffffff33);
+  @include var(header-nav-tooltip-color, #efefef);
+  @include var(header-nav-tooltip-background, #666);
 }
 
 header {
-  --e-header-background: #{$header-background};
-  --e-header-border: #{$header-border};
   top: 0;
   z-index: 1000;
 
   .container {
-    height: var(--e-header-height);
-    background: var(--e-header-background);
-    border-bottom: var(--e-header-border);
+    height: var(--header-height);
+    background: var(--header-background);
+    border-bottom: var(--header-border);
     display: grid;
     width: 100vw;
     align-items: center;
     grid-template-columns: auto auto;
 
     @media (max-width: $sidebar-show) {
-      grid-template-columns: var(--e-header-height) auto;
+      grid-template-columns: var(--header-height) auto;
     }
 
     e-sidebar {
@@ -44,17 +50,17 @@ header {
     .logo {
       @extend %text-overflow;
       margin-left: 25px;
-      height: var(--e-header-height);
+      height: var(--header-height);
 
       @media (max-width: $sidebar-show) {
         margin-left: 0;
       }
 
       h1 {
-        color: #fff;
+        color: var(--header-logo-color);
         font-size: 24px;
         margin: 0;
-        line-height: var(--e-header-height);
+        line-height: var(--header-height);
       }
     }
 
@@ -68,7 +74,7 @@ header {
 
       a {
         position: relative;
-        color: #fff;
+        color: var(--header-nav-color);
         margin: 0 10px;
         padding: 10px;
         border-radius: 5px;
@@ -79,8 +85,8 @@ header {
           display: inline-flex;
           justify-content: center;
           align-items: center;
-          height: calc(var(--e-header-height) / 1.5);
-          width: calc(var(--e-header-height) / 1.5);
+          height: calc(var(--header-height) / 1.5);
+          width: calc(var(--header-height) / 1.5);
           padding: 0;
           margin: 0 5px;
 
@@ -102,10 +108,7 @@ header {
               top: 100%;
               left: auto;
               margin-top: 3px;
-              // Triangle
-              border-left: 5px solid transparent;
-              border-right: 5px solid transparent;
-              border-bottom: 5px solid #666;
+              @include border-triangle('bottom', var(--header-nav-tooltip-background));
             }
 
             span {
@@ -113,7 +116,8 @@ header {
               margin-top: 7px;
               padding: 3px 5px;
               border-radius: 3px;
-              background-color: #666;
+              color: var(--header-nav-tooltip-color);
+              background-color: var(--header-nav-tooltip-background);
               display: block;
               position: absolute;
             }
@@ -129,7 +133,7 @@ header {
         }
 
         &:hover {
-          background-color: #ffffff33;
+          background-color: var(--header-nav-background-hover);
         }
       }
     }
@@ -137,7 +141,7 @@ header {
 
   + .placeholder {
     display: none;
-    height: var(--e-header-height);
+    height: var(--header-height);
     width: 100%;
   }
 

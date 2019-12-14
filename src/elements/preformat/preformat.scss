@@ -1,9 +1,15 @@
-@import "../../theme";
+@import '../../theme';
+@import '../../mixins';
+
+:host {
+  @include var(preformat-border, 1px solid #d3d3d3);
+  @include var(preformat-background, #f1f1f1);
+}
 
 pre {
   @extend %overflow;
-  border: 1px solid #d3d3d3;
-  background-color: #f1f1f1;
+  border: var(--preformat-border);
+  background: var(--preformat-background);
   padding: 5px;
   margin: 5px;
 }

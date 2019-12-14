@@ -1,11 +1,23 @@
 @import '../../theme';
+@import '../../mixins';
+
+:host {
+  @include var(button-color, #eee);
+  @include var(button-background, #337ab7);
+  @include var(button-border, 1px solid #2e6da4);
+  @include var(button-background-hover, #286090);
+  @include var(button-border-hover, 1px solid #204d74);
+  @include var(button-background-active, #1972b3);
+  @include var(button-border-active, 1px solid #1d84cf);
+  @include var(button-color-active, #fff);
+}
 
 a {
   padding: 5px 10px;
-  color: #eee;
+  color: var(--button-color);
   text-decoration: none;
-  background-color: #337ab7;
-  border: 1px solid #2e6da4;
+  background: var(--button-background);
+  border: var(--button-border);
   display: inline-block;
   font-size: 14px;
   white-space: nowrap;
@@ -16,17 +28,17 @@ a {
   }
 
   &:visited {
-    color: #eee;
+    color: var(--button-color);
   }
 
   &:hover {
-    background-color: #286090;
-    border-color: #204d74;
+    background: var(--button-background-hover);
+    border: var(--button-border-hover);
   }
 
   &:active, &:focus {
-    color: #fff;
-    background-color: #1972b3;
-    border-color: #1d84cf;
+    color: var(button-color-active);
+    background: var(--button-background-active);
+    border: var(--button-border-active);
   }
 }

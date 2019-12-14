@@ -1,0 +1,18 @@
+/** Converts scss style vars to :host style vars */
+@mixin var($name, $var) {
+  --#{$name}: var(--e-#{$name}, #{$var});
+}
+
+/** Defines a tringle using borders; top, bottom, left, right */
+@mixin border-triangle($type, $color, $size:5px, $style:solid) {
+  @if $type == 'top' or $type == 'bottom' {
+    border-left: $size $style transparent;
+    border-right: $size $style transparent;
+    border-#{$type}: $size $style $color;
+  }
+  @if $type == 'left' or $type == 'right' {
+    border-top: $size $style transparent;
+    border-bottom: $size $style transparent;
+    border-#{$type}: $size $style $color;
+  }
+}
