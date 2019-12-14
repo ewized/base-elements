@@ -56,9 +56,14 @@ export default class Social extends LitElement {
     return this.hasAttribute('outline') ? 'outline' : 'filled'
   }
 
+  /** Is the social icon outlined or filled */
+  get hovered() {
+    return this.hasAttribute('hovered') ? 'hovered' : 'normal'
+  }
+
   render() {
     return html`
-      <e-tooltip value=${this.tooltip} class="${this.social} ${this.rounded} ${this.outline}" style="${this.size} ${this.color}">
+      <e-tooltip value=${this.tooltip} class="${this.hovered} ${this.social} ${this.rounded} ${this.outline}" style="${this.size} ${this.color}">
         <a rel="nofollow" target="_blank" href=${this.link} aria-label=${this.tooltip}>
           <e-icon>${this.icon}</e-icon>
         </a>

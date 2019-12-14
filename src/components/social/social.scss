@@ -38,6 +38,14 @@ e-tooltip {
     --e-social-color: #{$color};
   }
 
+  .hovered {
+    background-color: transparent;
+    
+    &:hover a {
+      color: var(--e-social-color);
+    }
+  }
+
   // Make the icon round defaults to square
   .round {
     background-color: var(--e-social-color);
