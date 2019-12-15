@@ -269,7 +269,7 @@ const se=e=>t=>"function"==typeof t?((e,t)=>(window.customElements.define(e,t),t
       </span>
     `}};var Mt=Tt=function(e,t,r,o){var n,a=arguments.length,i=a<3?t:null===o?o=Object.getOwnPropertyDescriptor(t,r):o;if("object"==typeof Reflect&&"function"==typeof Reflect.decorate)i=Reflect.decorate(e,t,r,o);else for(var s=e.length-1;s>=0;s--)(n=e[s])&&(i=(a<3?n(i):a>3?n(t,r,i):n(t,r))||i);return a>3&&i&&Object.defineProperty(t,r,i),i}([se("e-tooltip"),we(Et.a)],Tt);const Lt={youtube:"youtube-play"};let Nt=class extends me{get social(){return this.getAttribute("network")||"custom"}get icon(){return this.getAttribute("icon")||Lt[this.social]||this.social}get tooltip(){return this.getAttribute("tooltip")}get link(){return ve(this.getAttribute("link"),"link attribute is required")}get size(){let e=this.getAttribute("size");return e?`--e-social-size: ${e}${e.match(/[a-z]+$/)?"":"px"};`:""}get color(){let e=this.getAttribute("color");return e?`--e-social-color: ${e};`:""}get rounded(){return this.hasAttribute("round")?"round":"square"}get outline(){return this.hasAttribute("outline")?"outline":"filled"}get hovered(){return this.hasAttribute("hovered")?"hovered":"normal"}render(){return I`
       <e-tooltip value=${this.tooltip} class="${this.hovered} ${this.social} ${this.rounded} ${this.outline}" style="${this.size} ${this.color}">
-        <a rel="nofollow" target="_blank" href=${this.link} aria-label=${this.tooltip}>
+        <a rel="nofollow noreferrer" target="_blank" href=${this.link} aria-label=${this.tooltip}>
           <e-icon>${this.icon}</e-icon>
         </a>
       </e-tooltip>
