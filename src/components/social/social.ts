@@ -64,7 +64,7 @@ export default class Social extends LitElement {
   render() {
     return html`
       <e-tooltip value=${this.tooltip} class="${this.hovered} ${this.social} ${this.rounded} ${this.outline}" style="${this.size} ${this.color}">
-        <a rel="nofollow" target="_blank" href=${this.link} aria-label=${this.tooltip}>
+        <a rel="nofollow noreferrer" target="_blank" href=${this.link} aria-label=${this.tooltip}>
           <e-icon>${this.icon}</e-icon>
         </a>
       </e-tooltip>
