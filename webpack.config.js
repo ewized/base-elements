@@ -1,4 +1,5 @@
 const path = require('path')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = {
   mode: 'production',
@@ -7,11 +8,20 @@ module.exports = {
     'base-elements': './src/index.ts',
   },
   output: {
-    path: path.resolve(__dirname, 'public/assets'),
+    path: path.resolve(__dirname, 'build'),
     filename: '[name].bundle.js',
   },
+  devServer: {
+    contentBase: path.resolve(__dirname, 'public'),
+    compress: true,
+    port: 8080,
+    hot: true,
+  },
+  plugins: [
+    new HtmlWebpackPlugin({ template: 'public/index.html' }),
+  ],
   resolve: {
-    extensions: ['.ts', '.css', '.scss'],
+    extensions: ['.js', '.ts', '.css', '.scss'],
   },
   module: {
     rules: [

@@ -29,6 +29,7 @@
     "css-loader": "^3.2.0",
     "eslint": "^6.7.2",
     "file-loader": "^4.2.0",
+    "html-webpack-plugin": "^3.2.0",
     "node-sass": "^4.13.0",
     "sass-loader": "^8.0.0",
     "serialize-javascript": ">=2.1.1",
@@ -36,13 +37,14 @@
     "ts-loader": "^6.2.1",
     "typescript": "^3.7.2",
     "webpack": "^4.41.2",
-    "webpack-cli": "^3.3.9"
+    "webpack-cli": "^3.3.9",
+    "webpack-dev-server": "^3.9.0"
   },
   "scripts": {
     "test": "echo 'No Tests'",
     "serve": "serve public/",
     "build": "tsc && npm run copyscss && webpack --mode production",
-    "dev": "webpack --watch --mode development",
+    "start": "webpack-dev-server --watch --mode development",
     "lint": "eslint src/**.ts",
     "copyscss": "find ./src -name '**.scss' | awk -F 'src/' '{print \"./src/\"$2, \"./lib/\"$2}' | xargs -n2 cp",
     "package": "npm run build -- -o ./base-elements.bundle.js && cp -R ./lib/* .",
