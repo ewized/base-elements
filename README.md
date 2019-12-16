@@ -22,13 +22,9 @@ Install the *npm* modules after you have cloned the repo.
 
 To run this in a dev environment just use *webpack* to build and watch the `src`.
 This folder is used to demo the components as well as develop the components.
+Then the site will be at `localhost:8080`.
 
-> npm run dev
-
-Just serve the `public/` folder from a standard http server, after you ran the command above.
-GitHub Pages will host the bundled version for demoing the master branch.
-For serving locally use [Web Server for Chrome](https://chrome.google.com/webstore/detail/web-server-for-chrome/ofhbbkphhbklhfoeikjpcbhemlocgigb/related?hl=en).
-Or you could run `npm run serve`.
+> npm run start
 
 ## License
 
