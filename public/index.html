@@ -1,0 +1,255 @@
+<!doctype html>
+<html lang="en-us">
+
+<head>
+  <title>Base Elements</title>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="description" content="This is used to demo the web components">
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes, shrink-to-fit=no">
+  <meta name="theme-color" content="#567">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" href="favicon.ico">
+</head>
+
+<body>
+  <e-header fixed header="Base Elements">
+    <e-menu-item icon="home" name="Home" link="#" sidebarOnly></e-menu-item>
+    <e-menu-item icon="coffee" name="Coffee" link="#"></e-menu-item>
+    <e-menu-item icon="facebook" name="Facebook" link="#"></e-menu-item>
+    <div slot="footer" style="padding: 15px 0">
+      <e-social network="twitch" hovered link="#" tooltip="Join Twitch" size="45"></e-social>
+      <e-social network="twitter" hovered link="#" tooltip="Join Twitter" size="45"></e-social>
+      <e-social network="youtube" hovered link="#" tooltip="Join YouTube" size="45"></e-social>  
+    </div>
+  </e-header>
+
+  <div class="container">
+    <e-paper>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam quis ex dapibus, auctor nisi quis, ornare sapien. Sed sit amet placerat augue. Quisque accumsan ultricies justo. Fusce aliquet arcu ut mi luctus facilisis. Donec luctus est sem, blandit pellentesque dui sodales ac. Donec aliquet quam maximus magna egestas auctor. Etiam id neque sed lacus aliquet suscipit. Donec sit amet purus vitae tellus aliquet bibendum id sit amet metus. Nulla facilisi.</e-paper>
+  </div>
+
+  <div class="container">
+    <e-card header="Stats">
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam quis ex dapibus, auctor nisi quis, ornare sapien. Sed sit amet placerat augue. Quisque accumsan ultricies justo. Fusce aliquet arcu ut mi luctus facilisis. Donec luctus est sem, blandit pellentesque dui sodales ac. Donec aliquet quam maximus magna egestas auctor. Etiam id neque sed lacus aliquet suscipit. Donec sit amet purus vitae tellus aliquet bibendum id sit amet metus. Nulla facilisi.
+<e-preformat slot="tail">-- Users --
+- 500k
+- 1 mill
+</e-preformat>
+    </e-card>
+
+    <e-card header="Header With Very Long Text To Test Text Overflow Ellipsis">
+      <e-icon slot="right-icon">star</e-icon>
+      <e-icon slot="left-icon">star</e-icon>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam quis ex dapibus, auctor nisi quis, ornare sapien. Sed sit amet placerat augue. Quisque accumsan ultricies justo. Fusce aliquet arcu ut mi luctus facilisis. Donec luctus est sem, blandit pellentesque dui sodales ac. Donec aliquet quam maximus magna egestas auctor. Etiam id neque sed lacus aliquet suscipit. Donec sit amet purus vitae tellus aliquet bibendum id sit amet metus. Nulla facilisi.
+    </e-card>
+
+    <e-card header="Links">
+      <e-icon slot="right-icon">link</e-icon>
+      <e-slideshow slot="head" delay="0" style="height: 150px; width: 100%;">
+        <img src="https://picsum.photos/id/0/200">
+        <img src="https://picsum.photos/id/1/200">
+      </e-slideshow>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam quis ex dapibus, auctor nisi quis, ornare sapien. Sed sit amet placerat augue. Quisque accumsan ultricies justo. Fusce aliquet arcu ut mi luctus facilisis. Donec luctus est sem, blandit pellentesque dui sodales ac. Donec aliquet quam maximus magna egestas auctor. Etiam id neque sed lacus aliquet suscipit. Donec sit amet purus vitae tellus aliquet bibendum id sit amet metus. Nulla facilisi.
+    </e-card>
+  </div>
+
+  <div class="container">
+    <e-link link="https://www.year4000.net/">www.year4000.net</e-link>
+  </div>
+
+  <div class="container">
+    <e-button link="https://www.year4000.net/">www.year4000.net</e-button>
+    <e-button link="https://www.year4000.net/"><e-icon>link</e-icon>www.year4000.net</e-button>
+    <e-button link="https://www.year4000.net/">www.year4000.net<e-icon>link</e-icon></e-button>
+    <e-button link="https://www.year4000.net/"><e-icon spin>spinner</e-icon></e-button>
+  </div>
+
+  <div class="container">
+<e-preformat>class Class {
+  constructor() {
+    // Do Stuff
+  }
+}
+</e-preformat>
+  </div>
+
+  <div class="container">
+    <e-image source="https://api.year4000.net/avatar/ewized"></e-image>
+  </div>
+
+  <div class="container">
+    <h1 class="no-spacing">Logo<e-badge>beta</e-badge></h1>
+    <br>
+    <e-badge>1</e-badge>
+    <br>
+    <e-badge><e-icon>align-justify</e-icon></e-badge>
+    <br>
+    <e-badge><e-icon>star</e-icon>Important</e-badge>
+  </div>
+
+  <div class="container">
+    <e-slideshow id="slideshow" style="height: 360px; max-width: 640px;">
+      <img src="https://picsum.photos/200">
+      <img src="https://picsum.photos/300">
+      <img src="https://picsum.photos/600">
+      <img src="https://picsum.photos/640">
+      <img src="https://picsum.photos/id/5/1920/1080">
+      <img src="https://picsum.photos/id/6/1920/1080">
+      <img src="https://picsum.photos/id/7/1920/1080">
+      <img src="https://picsum.photos/id/8/1920/1080">
+    </e-slideshow>
+    <script>
+      let slideshow = document.getElementById('slideshow')
+      slideshow.addEventListener('paused', event => console.log(event))
+      slideshow.addEventListener('changed-image', event => console.log(event))
+    </script>
+  </div>
+
+  <div class="container">
+<e-code lineNumbers language="javascript">class Class {
+  constructor() {
+    // Do Stuff
+  }
+
+  doSomething() {
+    let x = 5 + 6
+    return x
+  }
+}
+</e-code>
+  </div>
+
+  <div class="container">
+    <e-icon>star</e-icon>
+    <e-icon>coffee</e-icon>
+    <e-icon>adjust</e-icon>
+    <e-icon>align-justify</e-icon>
+  </div>
+
+  <div class="container">
+    This text has <e-highlight>highlight</e-highlight> on it.
+    <br>
+    This text has <e-highlight><e-tooltip value="Descriptins">highlight tooltip</e-tooltip></e-highlight> on it.
+    <br>
+    This text has a link highlight <e-highlight><e-link link="https://www.year4000.net/revisions">v1.0.0</e-link></e-highlight> to click on.
+    <br>
+    This text has a link highlight <e-highlight>
+      <e-icon>star</e-icon>
+      <e-link link="https://www.year4000.net/revisions">v1.0.0</e-link>
+    </e-highlight> to click on.
+  </div>
+
+  <div class="container" style="background-color: #ccc; height: 50px">
+    <e-flex-center>center</e-flex-center>
+  </div>
+
+  <div class="container" style="height: 250px">
+    <e-flex-box>
+      <e-flex-item style="background-color: blue;">
+        <e-flex-box column>
+          <e-flex-item style="background-color: yellow;">
+            <e-flex-center>Left Top</e-flex-center>
+          </e-flex-item>
+          <e-flex-item style="background-color: green;">
+            <e-flex-center>Left Bottom</e-flex-center>
+          </e-flex-item>
+        </e-flex-box>
+      </e-flex-item>
+      <e-flex-item style="background-color: red;" grow="2">
+        <e-flex-center>Right</e-flex-center>
+      </e-flex-item>
+    </e-flex-box>
+  </div>
+
+  <div class="container">
+    <e-tooltip value="This is a tooltip">Tooltip</e-tooltip>
+
+    &bull;
+
+    <e-tooltip direction="top">
+      <e-image slot="tooltip" source="https://picsum.photos/200"></e-image>
+      Image Tooltip
+    </e-tooltip>
+
+    &bull;
+
+    <e-tooltip direction="right">
+      <e-button slot="tooltip" link="https://picsum.photos/200">The contents</e-button>
+      Button Tooltip
+    </e-tooltip>
+
+    &bull;
+
+    <e-tooltip direction="left" value="left copy">
+      Left Tooltip
+    </e-tooltip>
+  </div>
+
+  <div class="container" style="min-height: 125px; background-color: #363636;">
+    <e-social network="facebook" link="#" tooltip="Join Facebook"></e-social>
+    <e-social network="twitter" outline link="#" tooltip="Join Twitter"></e-social>
+    <e-social network="youtube" outline round link="#" tooltip="Join YouTube"></e-social>
+    <e-social network="github" round link="#" tooltip="Join GitHub"></e-social>
+    <e-social network="linkedin" link="#" tooltip="Join Linkedin"></e-social>
+    <e-social network="twitch" hovered link="#" tooltip="Join Twitch"></e-social>
+    <e-social icon="coffee" color="#567" link="#" tooltip="Join Coffee"></e-social>
+    <e-social icon="star" round color="#123" link="#" tooltip="Join Star" size="100px"></e-social>
+  </div>
+
+  <div class="container">
+    <e-paper>
+      <p style="padding: 0 10px">
+        <e-markdown>
+### Java Signatures
+Below are signature types for [Java types](#).
+For a method you use `([Ljava/lang/String;)V` represents a method with an argument of String[] and returns `void`.
+
+- `V` void
+- `J` long
+- `I` int
+- `B` byte
+- `Z` boolean
+- `D` double
+- `S` short
+- `F` float
+- `C` char
+- `[` array
+- `L;` object
+- `()` method
+
+
+### Proxy Interface
+The *proxy interface* lets us access an object's instance at **runtime**.
+This is allows us to create code for a system that we know is available at runtime but not possible to have at compile time.
+
+Every proxy object has special handling for `$this()`.
+It will grab the underlying instance that the proxy is proxing.
+We use the return type `Object` for instances that are not known at compile time.
+If the instance is known at compile time you may substitute the return type.
+
+#### Standard Practices
+- Proxy objects should include a static method that will create the proxy instance.
+- Proxy objects should include `Object $this()`
+- Setters and Getter should avoid `set` and `get` prefix as visibility views are ignored
+- Use default methods to provide additional functionality
+
+This snippet shows how to set up a very basic Proxy interface and standard practices
+```java
+@Proxied("path.to.Object")
+public interface ProxyObject {
+    // standard practice - allow creating proxies of the instance
+    static ProxyObject of(Object instance) {
+        return Gateways.proxy(ProxyObject.class, instance);
+    }
+
+    // standard practice - allow retrieving the proxying instance
+    Object $this();
+}
+```
+        </e-markdown>
+      </p>
+    </e-paper>
+  </div>
+
+</body>
+</html>
