@@ -9,8 +9,8 @@ export const DEFAULT_DELAY = 0
 export default class Slideshow extends LitElement {
   intervalId = -1
   index = 0
-  length = this.children?.length || 0
-  delay = Number(this.getAttribute('delay') || DEFAULT_DELAY)
+  length = this.children?.length ?? 0
+  delay = Number(this.getAttribute('delay') ?? DEFAULT_DELAY)
   @property() image = this.children[0]?.cloneNode()
   @property() pause = !this.hasAttribute('autoPlay')
 
