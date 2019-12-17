@@ -1,15 +1,22 @@
 @import '../../mixins';
 
 $tooltip-background: #666;
+$tooltip-directions:
+  left right,
+  right left,
+  top bottom,
+  bottom top,
+;
 
 :host {
   @include var(tooltip-background, $tooltip-background);
-  line-height: 0;
-  display: inline-block;
 }
 
 span.wrapper {
   position: relative;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
 
   // Tooltip content
   > slot[name='tooltip'] {
@@ -49,71 +56,23 @@ span.wrapper {
   }
 
   // Style the diffrent directions
-  &.bottom {
-    // Arrow
-    &:before {
-      top: 100%;
-      left: 50%;
-      // Triangle
-      @include border-triangle(bottom, var(--tooltip-background));
-    }
+  @each $class, $direction, $margin-direction in $tooltip-directions {
+    &.#{$class} {
+      $margin: 2px;
+      $arrow-size: 5px;
 
-    // Tooltip
-    > slot[name='tooltip'] {
-      top: 100%;
-      left: 0;
-      margin-top: 5px;
-    }
-  }
-
-  &.top {
-    // Arrow
-    &:before {
-      bottom: 100%;
-      left: 50%;
-      // Triangle
-      @include border-triangle(top, var(--tooltip-background));
-    }
-
-    // Tooltip
-    > slot[name='tooltip'] {
-      bottom: 100%;
-      left: 0;
-      margin-bottom: 5px;
-    }
-  }
-
-  &.left {
-    // Arrow
-    &:before {
-      top: 25%;
-      right: 100%;
-      // Triangle
-      @include border-triangle(left, var(--tooltip-background));
-    }
-
-    // Tooltip
-    > slot[name='tooltip'] {
-      top: 0;
-      right: 100%;
-      margin-right: 5px;
-    }
-  }
-
-  &.right {
-    // Arrow
-    &:before {
-      top: 25%;
-      left: 100%;
-      // Triangle
-      @include border-triangle(right, var(--tooltip-background));
-    }
-
-    // Tooltip
-    > slot[name='tooltip'] {
-      top: 0;
-      left: 100%;
-      margin-left: 5px;
+      // Arrow
+      &:before {
+        #{$direction}: 100%;
+        margin-#{$direction}: #{$margin};
+        @include border-triangle(#{$class}, var(--tooltip-background), $arrow-size);
+      }
+  
+      // Tooltip
+      > slot[name='tooltip'] {
+        #{$direction}: 100%;
+        margin-#{$direction}: #{$margin + $arrow-size};
+      }
     }
   }
 }
