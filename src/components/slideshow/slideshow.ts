@@ -14,12 +14,12 @@ export default class Slideshow extends LitElement {
   @property() image = this.children[0]?.cloneNode()
   @property() pause = !this.hasAttribute('autoPlay')
 
-  async next() {
+  next() {
     let i = this.index
     this.item(++i >= this.length ? 0 : i)
   }
 
-  async prev() {
+  prev() {
     let i = this.index
     this.item(--i <= -1 ? this.length - 1 : i)
   }
@@ -41,7 +41,7 @@ export default class Slideshow extends LitElement {
     }))
   }
 
-  async togglePause() {
+  togglePause() {
     // Only allow pausing when the delay > 0
     if (this.delay > 0) {
       this.pause = !this.pause
