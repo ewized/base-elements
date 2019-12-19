@@ -28,7 +28,7 @@ const loadImagesInView = async () => new Promise(resolve => {
         imageData.callback()
       } finally {
         // remove from sortedList after we call the callback
-        sortedList.splice(i, 1)
+        sortedList.splice(i--, 1)
       }
     }
     // we are done with requestAnimationFrame
