@@ -54,7 +54,8 @@ export default class Image extends LitElement {
         this.loaded = true
       },
       get top(): number {
-        return this.element.getBoundingClientRect().top
+        let top = this.element.getBoundingClientRect().top
+        return top === 0 ? this.element?.parentElement?.getBoundingClientRect()?.top || 0 : top
       },
     }
     // fancy sorting algorithm to speed this things up
@@ -66,10 +67,10 @@ export default class Image extends LitElement {
         let top = callback.top
         // use recursive binary search hear since you should not have many images on a website anyways
         const binarySearch = (i: number, j: number): number => {
-          if (i === j) {
+          if (i + 1 >= j) {
             return i
           }
-          let mid = ((j / 2) + i) >> 0
+          let mid = (i + (j - i) / 2) >> 0
           return top > sortedList[mid].top ? binarySearch(mid, j) : binarySearch(i, mid)
         }
         return binarySearch(0, sortedList.length)
