@@ -7,37 +7,37 @@ const TRANS_PNG = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC
 interface ElementCallback {
   element: HTMLElement,
   callback: () => void,
+  top: number,
 }
 
 // inplace sorted list
 const sortedList: Array<ElementCallback> = []
 
-// register the scroll event listener
-window.addEventListener('scroll', async () => {
-  // process all the images that are in the view for the current animation frame
-  await new Promise(resolve => {
-    // have the callbacks only be called on a request frame
-    window.requestAnimationFrame(() => {
-      let height
-      // Iterate from start of list list skipping < 0 and stoping the loop when outside of view port
-      for (let i = 0 ; i < sortedList.length && window.innerHeight >= (height = sortedList[i]?.element?.getBoundingClientRect()?.top) ; i++) {
-        let imageData = sortedList[i]
-        if (height < 0) {
-          continue
-        }
-        try {
-          // run the imageData callback
-          imageData.callback()
-        } finally {
-          // remove from sortedList after we call the callback
-          sortedList.splice(i, 1)
-        }
+// process all the images that are in the view for the current animation frame
+const loadImagesInView = async () => new Promise(resolve => {
+  // have the callbacks only be called on a request frame
+  window.requestAnimationFrame(() => {
+    // Iterate from start of list list skipping < 0 and stoping the loop when outside of view port
+    for (let i = 0, height ; i < sortedList.length && window.innerHeight >= (height = sortedList[i].top) ; i++) {
+      let imageData = sortedList[i]
+      if (height < 0) {
+        continue
       }
-      // we are done with requestAnimationFrame
-      resolve()
-    })
+      try {
+        // run the imageData callback
+        imageData.callback()
+      } finally {
+        // remove from sortedList after we call the callback
+        sortedList.splice(i, 1)
+      }
+    }
+    // we are done with requestAnimationFrame
+    resolve()
   })
 })
+
+// register the scroll event listener
+window.addEventListener('scroll', async () => await loadImagesInView())
 
 @customElement('e-image')
 @styles(style)
@@ -47,29 +47,37 @@ export default class Image extends LitElement {
 
   connectedCallback() {
     super.connectedCallback()
-    let callback = {
+    const callback = {
       element: this,
       callback: () => {
         this.image = this.source
         this.loaded = true
       },
+      get top(): number {
+        return this.element.getBoundingClientRect().top
+      },
     }
-    let height = this.getBoundingClientRect().top
     // fancy sorting algorithm to speed this things up
-    if (sortedList.length == 0 || (sortedList.length > 0 && sortedList[sortedList.length - 1].element.getBoundingClientRect().top <= height)) {
+    if (sortedList.length == 0 || (sortedList.length > 0 && sortedList[sortedList.length - 1].top <= callback.top)) {
       sortedList.push(callback)
     } else {
-      // insert the callback in place relative to the other elements
-      const getInertIndex = () => {
-        for (let i = 0 ; i < sortedList.length ; i++) {
-          if (sortedList[i].element.getBoundingClientRect().top >= height) {
+      // insert the callback in place relative to the other elements using binary search
+      const getInsertIndex = () => {
+        let top = callback.top
+        // use recursive binary search hear since you should not have many images on a website anyways
+        const binarySearch = (i: number, j: number): number => {
+          if (i === j) {
             return i
           }
+          let mid = ((j / 2) + i) >> 0
+          return top > sortedList[mid].top ? binarySearch(mid, j) : binarySearch(i, mid)
         }
-        return sortedList.length
+        return binarySearch(0, sortedList.length)
       }
-      sortedList.splice(getInertIndex(), 0, callback)
+      sortedList.splice(getInsertIndex(), 0, callback)
     }
+    // check for loading
+    loadImagesInView()
   }
 
   disconnectedCallback() {
@@ -77,8 +85,8 @@ export default class Image extends LitElement {
     // remove callback from list if not all ready loaded
     if (!this.loaded) {
       for (let i = 0 ; i < sortedList.length ; i++) {
-        if (sortedList[i].element === this) {
-          sortedList.slice(i, 1)
+        if (this.isSameNode(sortedList[i].element)) {
+          sortedList.splice(i, 1)
         }
       }
     }
