@@ -8,7 +8,6 @@
   "module": "index.js",
   "files": [
     "components/",
-    "elements/",
     "layouts/",
     "/*.js*",
     "/*.d.ts*",

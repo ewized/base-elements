@@ -4,7 +4,7 @@ import style from './header.scss'
 import MenuItem from './menu-item'
 import './sidebar'
 import '../icon'
-import '../../elements/link'
+import '../link'
 
 @customElement('e-header')
 @styles(style)

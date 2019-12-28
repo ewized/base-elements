@@ -3,7 +3,6 @@ build/
 /base-elements.bundle.js
 /base-elements.bundle.js.map
 /components/
-/elements/
 /layouts/
 /index.js
 /utils.js

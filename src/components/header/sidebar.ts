@@ -3,7 +3,7 @@ import { styles } from '../../utils'
 import style from './sidebar.scss'
 import MenuItem from './menu-item'
 import '../icon'
-import '../../elements/link'
+import '../link'
 
 @customElement('e-sidebar')
 @styles(style)
