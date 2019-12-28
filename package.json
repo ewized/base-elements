@@ -4,8 +4,8 @@
   "description": "This contains styled web components that are used to create websites",
   "repository": "https://github.com/ewized/base-elements",
   "private": false,
-  "main": "base-elements.bundle.js",
-  "module": "index.js",
+  "main": "base-elements.js",
+  "module": "base-elements.js",
   "types": "index.d.ts",
   "files": [
     "components/",
