@@ -31,8 +31,6 @@ const modules = () => {
   }, {})
 }
 
-console.log(modules())
-
 module.exports = {
   mode: 'production',
   devtool: 'source-map',
@@ -51,7 +49,11 @@ module.exports = {
     hot: true,
   },
   plugins: [
-    new HtmlWebpackPlugin({ template: 'public/index.html' }),
+    new HtmlWebpackPlugin({
+      template: 'public/index.html',
+      hash: true,
+      chunks: [ 'base-elements' ],
+    }),
   ],
   resolve: {
     extensions: ['.js', '.ts', '.css', '.scss'],

@@ -23,7 +23,7 @@ jobs:
           npm test
         env:
           CI: true
-      - run: mkdir out/ && cp build/base-elements.bundle.* out/
+      - run: mkdir out/ && cp build/*.js* out/
       - name: Upload bundle artifact
         uses: actions/upload-artifact@v1.0.0
         with:

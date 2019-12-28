@@ -40,12 +40,12 @@
   },
   "scripts": {
     "test": "echo 'No Tests'",
-    "build": "tsc && npm run copyscss && npm run copypublic && webpack --mode production",
+    "build": "webpack --mode production",
+    "builddocs": "npm run build && npm run copypublic",
     "start": "webpack-dev-server --watch --mode development",
     "lint": "eslint src/**.ts",
     "copypublic": "cp -r public/ build/",
-    "copyscss": "find ./src -name '**.scss' | awk -F 'src/' '{print \"./src/\"$2, \"./lib/\"$2}' | xargs -n2 cp",
-    "package": "npm run build -- -o ./base-elements.bundle.js && cp -R ./lib/* .",
+    "package": "npm run build && cp -R ./build/* . && cp -R ./lib/* .",
     "prepublish": "npm run lint && npm run package",
     "__release": "npm run lint && npm run build && npm test && npm version patch && git push --tags origin master"
   },
