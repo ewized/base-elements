@@ -11,6 +11,8 @@
     "moduleResolution": "node",
     "strict": true,
     "declaration": true,
-    "declarationMap": true
+    "declarationMap": true,
+    "esModuleInterop": true,
+    "allowJs": true
   }
 }
