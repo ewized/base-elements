@@ -1,15 +1,19 @@
 {
   "compilerOptions": {
     "outDir": "./lib/",
+    "rootDir": "./src/",
     "sourceMap": true,
     "noImplicitAny": true,
-    "module": "es6",
+    "module": "esnext",
     "target": "es6",
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
     "moduleResolution": "node",
     "strict": true,
     "declaration": true,
-    "declarationMap": true
-  }
+    "declarationMap": true,
+    "esModuleInterop": true,
+    "allowJs": true
+  },
+  "include": [ "src" ]
 }
