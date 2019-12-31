@@ -1,0 +1,94 @@
+@import "../../theme";
+@import "../../mixins";
+
+:host {
+  @extend %host-block;
+  @include var(input-background, #fff);
+  @include var(input-background-disabled, #f0f0f0);
+}
+
+$top-padding: 20px;
+$sides-padding: 15px;
+$line-height: 15px;
+$bottom-padding: 5px;
+$center: ($line-height + $top-padding + $bottom-padding) / 4;
+
+@mixin color-scheme($color, $caption: false) {
+  border-color: $color;
+  + label {
+    color: $color;
+  }
+  @if $caption {
+    ~ span {
+      color: $color;
+    }
+  }
+}
+
+input {
+  background: var(--input-background);
+  border: 1px solid #aaa;
+  padding: $top-padding $sides-padding;
+  padding-bottom: $bottom-padding;
+  font-size: 14px;
+  line-height: $line-height;
+
+  &::placeholder {
+    color: transparent;
+  }
+
+  &:focus {
+    outline: none;
+    @include color-scheme($text-primary-color);
+  }
+
+  &:not(:placeholder-shown):valid {
+    @include color-scheme(green);
+  }
+
+  &:invalid {
+    @include color-scheme(red, true);
+  }
+
+  &:disabled {
+    background: var(--input-background-disabled);
+    cursor: not-allowed;
+  }
+
+  &:-webkit-autofill {
+    -webkit-text-fill-color: rgba($text-primary-color, 0.9);
+    -webkit-box-shadow: 0 0 0 100vw rgba($text-primary-color, 0.1) inset;
+  }
+
+  // move label to top of input box
+  &:focus, &:not(:placeholder-shown) {
+    + label {
+      user-select: none;
+      pointer-events: none;
+      font-size: 10px;
+      padding-top: $bottom-padding;
+      padding-bottom: 0;
+      font-weight: bold;
+    }
+  }
+}
+
+// Label that acts as the placeholder
+label {
+  top: 0;
+  left: 0;
+  position: absolute;
+  cursor: text;
+  padding: $center $sides-padding;
+  color: #666;
+  transition: all 0.15s ease-in;
+  font-size: 14px;
+}
+
+// caption for input feild
+span {
+  display: block;
+  font-size: 8px;
+  color: #999;
+  margin-bottom: 5px;
+}
