@@ -110,7 +110,7 @@ const u=t=>null===t||!("object"==typeof t||"function"==typeof t),l=t=>Array.isAr
  * subject to an additional IP rights grant found at
  * http://polymer.github.io/PATENTS.txt
  */
-const s={},r={}},39:function(t,e,n){(t.exports=n(12)(!1)).push([t.i,":host{--paper-background: var(--e-paper-background, #fff);--paper-color: var(--e-paper-color, rgba(0,0,0,0.737255));--paper-border: var(--e-paper-border, 1px solid #ccc);--paper-shadow: var(--e-paper-shadow, 0 0 5px rgba(0,0,0,0.2))}div{background:var(--paper-background);color:var(--paper-color);margin:10px;border:var(--paper-border);box-shadow:var(--paper-shadow)}\n",""])},4:function(t,e,n){"use strict";var s=n(2);
+const s={},r={}},39:function(t,e,n){(t.exports=n(12)(!1)).push([t.i,":host{--paper-background: var(--e-paper-background, #fff);--paper-color: var(--e-paper-color, rgba(0,0,0,0.737255));--paper-border: var(--e-paper-border, 1px solid #ccc);--paper-shadow: var(--e-paper-shadow, 0 0 5px rgba(0,0,0,0.2));display:block;position:relative;overflow:hidden;margin:10px;background:var(--paper-background);color:var(--paper-color);border:var(--paper-border);box-shadow:var(--paper-shadow)}:host slot::slotted(p){margin:10px 5px;padding:5px}\n",""])},4:function(t,e,n){"use strict";var s=n(2);
 /**
  * @license
  * Copyright (c) 2017 The Polymer Project Authors. All rights reserved.
@@ -151,11 +151,7 @@ const s={},r={}},39:function(t,e,n){(t.exports=n(12)(!1)).push([t.i,":host{--pap
  * subject to an additional IP rights grant found at
  * http://polymer.github.io/PATENTS.txt
  */
-const s=void 0!==window.customElements&&void 0!==window.customElements.polyfillWrapFlushCallback,r=(t,e,n=null,s=null)=>{for(;e!==n;){const n=e.nextSibling;t.insertBefore(e,s),e=n}},i=(t,e,n=null)=>{for(;e!==n;){const n=e.nextSibling;t.removeChild(e),e=n}}},52:function(t,e,n){"use strict";n.r(e);var s=n(1),r=n(10),i=n(39),o=n.n(i);let a=class extends s.b{render(){return s.e`
-      <div>
-        <slot></slot>
-      </div>
-    `}};a=function(t,e,n,s){var r,i=arguments.length,o=i<3?e:null===s?s=Object.getOwnPropertyDescriptor(e,n):s;if("object"==typeof Reflect&&"function"==typeof Reflect.decorate)o=Reflect.decorate(t,e,n,s);else for(var a=t.length-1;a>=0;a--)(r=t[a])&&(o=(i<3?r(o):i>3?r(e,n,o):r(e,n))||o);return i>3&&o&&Object.defineProperty(e,n,o),o}([Object(s.d)("e-paper"),Object(r.c)(o.a)],a);var c=a;n.d(e,"Paper",(function(){return c}))},6:function(t,e,n){"use strict";n.d(e,"b",(function(){return r})),n.d(e,"a",(function(){return i}));var s=n(0);
+const s=void 0!==window.customElements&&void 0!==window.customElements.polyfillWrapFlushCallback,r=(t,e,n=null,s=null)=>{for(;e!==n;){const n=e.nextSibling;t.insertBefore(e,s),e=n}},i=(t,e,n=null)=>{for(;e!==n;){const n=e.nextSibling;t.removeChild(e),e=n}}},52:function(t,e,n){"use strict";n.r(e);var s=n(1),r=n(10),i=n(39),o=n.n(i);let a=class extends s.b{render(){return s.e`<slot></slot>`}};a=function(t,e,n,s){var r,i=arguments.length,o=i<3?e:null===s?s=Object.getOwnPropertyDescriptor(e,n):s;if("object"==typeof Reflect&&"function"==typeof Reflect.decorate)o=Reflect.decorate(t,e,n,s);else for(var a=t.length-1;a>=0;a--)(r=t[a])&&(o=(i<3?r(o):i>3?r(e,n,o):r(e,n))||o);return i>3&&o&&Object.defineProperty(e,n,o),o}([Object(s.d)("e-paper"),Object(r.c)(o.a)],a);var c=a;n.d(e,"Paper",(function(){return c}))},6:function(t,e,n){"use strict";n.d(e,"b",(function(){return r})),n.d(e,"a",(function(){return i}));var s=n(0);
 /**
  * @license
  * Copyright (c) 2017 The Polymer Project Authors. All rights reserved.

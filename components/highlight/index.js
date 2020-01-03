@@ -110,7 +110,7 @@ const l=t=>null===t||!("object"==typeof t||"function"==typeof t),u=t=>Array.isAr
  * subject to an additional IP rights grant found at
  * http://polymer.github.io/PATENTS.txt
  */
-const s={},r={}},35:function(t,e,n){(t.exports=n(12)(!1)).push([t.i,"em{display:inline-block;background-color:#567899;padding:0 5px;margin:1px 0;color:#fefefe;border-radius:2px;font-style:normal}em ::slotted(*){--link-color: #efefef;--link-border-hover: 1px dotted #eee;--link-color-active: #fff}\n",""])},4:function(t,e,n){"use strict";var s=n(2);
+const s={},r={}},35:function(t,e,n){(t.exports=n(12)(!1)).push([t.i,":host{position:relative;display:inline;overflow:hidden;background-color:#567899;padding:2px 3px;margin:2px 1px;color:#fefefe;border-radius:2px;font-style:normal}:host ::slotted(*){--link-color: #efefef;--link-border-hover: 1px dotted #eee;--link-color-active: #fff}\n",""])},4:function(t,e,n){"use strict";var s=n(2);
 /**
  * @license
  * Copyright (c) 2017 The Polymer Project Authors. All rights reserved.
@@ -137,7 +137,7 @@ const s={},r={}},35:function(t,e,n){(t.exports=n(12)(!1)).push([t.i,"em{display:
  * subject to an additional IP rights grant found at
  * http://polymer.github.io/PATENTS.txt
  */
-(window.litHtmlVersions||(window.litHtmlVersions=[])).push("1.1.2");const a=(t,...e)=>new i.b(t,e,"html",r)},49:function(t,e,n){"use strict";n.r(e);var s=n(1),r=n(10),i=n(35),o=n.n(i);let a=class extends s.b{render(){return s.e`<em><slot></slot></em>`}};a=function(t,e,n,s){var r,i=arguments.length,o=i<3?e:null===s?s=Object.getOwnPropertyDescriptor(e,n):s;if("object"==typeof Reflect&&"function"==typeof Reflect.decorate)o=Reflect.decorate(t,e,n,s);else for(var a=t.length-1;a>=0;a--)(r=t[a])&&(o=(i<3?r(o):i>3?r(e,n,o):r(e,n))||o);return i>3&&o&&Object.defineProperty(e,n,o),o}([Object(s.d)("e-highlight"),Object(r.c)(o.a)],a);var c=a;n.d(e,"Highlight",(function(){return c}))},5:function(t,e,n){"use strict";n.d(e,"a",(function(){return s})),n.d(e,"c",(function(){return r})),n.d(e,"b",(function(){return i}));
+(window.litHtmlVersions||(window.litHtmlVersions=[])).push("1.1.2");const a=(t,...e)=>new i.b(t,e,"html",r)},49:function(t,e,n){"use strict";n.r(e);var s=n(1),r=n(10),i=n(35),o=n.n(i);let a=class extends s.b{render(){return s.e`<slot></slot>`}};a=function(t,e,n,s){var r,i=arguments.length,o=i<3?e:null===s?s=Object.getOwnPropertyDescriptor(e,n):s;if("object"==typeof Reflect&&"function"==typeof Reflect.decorate)o=Reflect.decorate(t,e,n,s);else for(var a=t.length-1;a>=0;a--)(r=t[a])&&(o=(i<3?r(o):i>3?r(e,n,o):r(e,n))||o);return i>3&&o&&Object.defineProperty(e,n,o),o}([Object(s.d)("e-highlight"),Object(r.c)(o.a)],a);var c=a;n.d(e,"Highlight",(function(){return c}))},5:function(t,e,n){"use strict";n.d(e,"a",(function(){return s})),n.d(e,"c",(function(){return r})),n.d(e,"b",(function(){return i}));
 /**
  * @license
  * Copyright (c) 2017 The Polymer Project Authors. All rights reserved.
