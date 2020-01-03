@@ -9,7 +9,7 @@
 
 $top-padding: 20px;
 $sides-padding: 15px;
-$line-height: 15px;
+$line-height: 18px;
 $bottom-padding: 5px;
 $center: ($line-height + $top-padding + $bottom-padding) / 4;
 
@@ -32,6 +32,7 @@ input {
   padding-bottom: $bottom-padding;
   font-size: 14px;
   line-height: $line-height;
+  min-width: 175px;
 
   &::placeholder {
     color: transparent;
@@ -91,4 +92,34 @@ span {
   font-size: 8px;
   color: #999;
   margin-bottom: 5px;
+}
+
+// additional css for password visiablity button
+input.password {
+  min-width: 175px;
+  padding-right: 12px;
+  ~ a.password-visiablity {
+    text-align: right;
+    visibility: hidden;
+    top: 0;
+    right: 0;
+    position: absolute;
+    padding: #{$top-padding - 2} 5px 0 5px;
+    margin: 2px 0;
+    font-size: 12px;
+    width: 30px;
+    cursor: pointer;
+    font-variant: small-caps;
+    user-select: none;
+    &:hover {
+      visibility: visible;
+    }
+  }
+  &:focus:not(:placeholder-shown) {
+    min-width: 135px;
+    padding-right: 40px;
+    ~ a.password-visiablity {
+      visibility: visible;
+    }
+  }
 }
