@@ -7,6 +7,6 @@ import style from './highlight.scss'
 export default class Highlight extends LitElement {
 
   render() {
-    return html`<em><slot></slot></em>`
+    return html`<slot></slot>`
   }
 }

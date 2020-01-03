@@ -1,10 +1,11 @@
-@import '../../theme';
 
-em {
-  display: inline-block;
+:host {
+  position: relative;
+  display: inline;
+  overflow: hidden;
   background-color: #567899;
-  padding: 0 5px;
-  margin: 1px 0;
+  padding: 2px 3px;
+  margin: 2px 1px;
   color: #fefefe;
   border-radius: 2px;
   font-style: normal;

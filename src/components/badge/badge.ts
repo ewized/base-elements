@@ -7,10 +7,6 @@ import style from './badge.scss'
 export default class Badge extends LitElement {
 
   render() {
-    return html`
-      <span>
-        <slot></slot>
-      </span>
-    `
+    return html`<slot></slot>`
   }
 }

@@ -4,12 +4,16 @@
 :host {
   @include var(preformat-border, 1px solid #d3d3d3);
   @include var(preformat-background, #f1f1f1);
-}
-
-pre {
+  // formating
+  position: relative;
+  display: block;
+  white-space: pre;
+  padding: 5px;
+  margin: 5px;
+  font-family: monospace;
+  font-size: 12px;
+  // styles
   @extend %overflow;
   border: var(--preformat-border);
   background: var(--preformat-background);
-  padding: 5px;
-  margin: 5px;
 }

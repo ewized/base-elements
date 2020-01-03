@@ -7,6 +7,6 @@ import style from './preformat.scss'
 export default class Preformat extends LitElement {
 
   render() {
-    return html`<pre><slot></slot></pre>`
+    return html`<slot></slot>`
   }
 }

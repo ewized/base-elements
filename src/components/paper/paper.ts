@@ -7,10 +7,6 @@ import style from './paper.scss'
 export default class Paper extends LitElement {
 
   render() {
-    return html`
-      <div>
-        <slot></slot>
-      </div>
-    `
+    return html`<slot></slot>`
   }
 }

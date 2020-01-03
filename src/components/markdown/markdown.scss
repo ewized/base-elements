@@ -1,5 +1,5 @@
 @import '../../theme';
-@import '../preformat/preformat';
+@import '../../mixins';
 
 :host {
   color: $text-color;
@@ -27,4 +27,17 @@ a {
   &:hover {
     border-bottom: 1px dotted $text-color;
   }
+}
+
+// todo find a better way to copy stuff like this
+pre {
+  @include var(preformat-border, 1px solid #d3d3d3);
+  @include var(preformat-background, #f1f1f1);
+  // formating
+  padding: 5px;
+  margin: 5px;
+  // styles
+  @extend %overflow;
+  border: var(--preformat-border);
+  background: var(--preformat-background);
 }

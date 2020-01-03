@@ -6,12 +6,19 @@
   @include var(paper-color, $text-color);
   @include var(paper-border, 1px solid $paper-border-color);
   @include var(paper-shadow, 0 0 5px $paper-shadow-color);
-}
 
-div {
+  display: block;
+  position: relative;
+  overflow: hidden;
+  margin: 10px;
+
   background: var(--paper-background);
   color: var(--paper-color);
-  margin: 10px;
   border: var(--paper-border);
   box-shadow: var(--paper-shadow);
+
+  slot::slotted(p) {
+    margin: 10px 5px;
+    padding: 5px;
+  }
 }
