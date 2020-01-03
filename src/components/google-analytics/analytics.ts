@@ -1,8 +1,6 @@
 import { LitElement, html, customElement } from 'lit-element'
 import { script, notNull } from '../../utils'
 
-declare const ga: any
-
 declare global {
   interface Window {
     ga: any
@@ -25,9 +23,9 @@ export default class GoogleAnalytics extends LitElement {
   /** Get the google analytics object that is loaded from the script */
   get ga() {
     window.ga = window.ga || function() {
-      (ga.q = ga.q || []).push(arguments)
+      (window.ga.q = window.ga.q || []).push(arguments)
     }
-    ga.l =+ new Date()
+    window.ga.l =+ new Date()
     return window.ga
   }
 
