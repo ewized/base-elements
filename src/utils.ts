@@ -49,3 +49,14 @@ export const script = directive((value: string, async: boolean = false) => (part
   script.async = async
   part.setValue(script)
 })
+
+/** Create the custom element once */
+export const customElement = (name: string, options?: ElementDefinitionOptions) => (clazz: any) => {
+  const registry = window.customElements
+  // only define once
+  if (!registry.get(name)) {
+    //console.info(`registering <${name}>`)
+    registry.define(name, clazz, options)
+  }
+  return clazz
+}

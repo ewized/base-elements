@@ -1,5 +1,5 @@
-import { LitElement, html, customElement, property, query } from 'lit-element'
-import { styles, notNull } from '../../utils'
+import { LitElement, html, property } from 'lit-element'
+import { styles, notNull, customElement } from '../../utils'
 import style from './image.scss'
 
 const TRANS_PNG = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR4nGP6zwAAAgcBApocMXEAAAAASUVORK5CYII='

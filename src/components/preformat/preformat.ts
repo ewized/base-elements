@@ -1,5 +1,5 @@
-import { LitElement, html, customElement } from 'lit-element'
-import { styles } from '../../utils'
+import { LitElement, html } from 'lit-element'
+import { styles, customElement } from '../../utils'
 import style from './preformat.scss'
 
 @customElement('e-preformat')

@@ -1,5 +1,5 @@
-import { LitElement, html, css, unsafeCSS, customElement } from 'lit-element'
-import { styles } from '../../utils'
+import { LitElement, html, css, unsafeCSS } from 'lit-element'
+import { styles, customElement } from '../../utils'
 import style from './icon.scss'
 
 // @ts-ignore

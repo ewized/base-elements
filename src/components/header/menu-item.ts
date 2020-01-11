@@ -1,4 +1,5 @@
-import { LitElement, customElement } from 'lit-element'
+import { LitElement } from 'lit-element'
+import { customElement } from '../../utils'
 
 /**
   This element is only for data, as the header and sidebar will take this

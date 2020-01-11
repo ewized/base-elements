@@ -1,4 +1,5 @@
 import { LitElement, html, customElement } from 'lit-element'
+import {  } from '../../utils'
 
 /** Defines the flex item that just renders the slotted content */
 @customElement('e-flex-item')

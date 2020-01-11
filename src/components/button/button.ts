@@ -1,5 +1,5 @@
-import { LitElement, html, customElement } from 'lit-element'
-import { styles, notNull } from '../../utils'
+import { LitElement, html } from 'lit-element'
+import { styles, notNull, customElement } from '../../utils'
 import style from './button.scss'
 
 @customElement('e-button')

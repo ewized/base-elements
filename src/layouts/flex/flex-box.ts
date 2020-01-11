@@ -1,5 +1,5 @@
-import { LitElement, html, customElement } from 'lit-element'
-import { styles } from '../../utils'
+import { LitElement, html } from 'lit-element'
+import { styles, customElement } from '../../utils'
 import style from './flex.scss'
 
 /** The wrapper that defines a flex box area, and renders the children */

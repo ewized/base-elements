@@ -1,7 +1,7 @@
-import { LitElement, html, customElement, property } from 'lit-element'
+import { LitElement, html, property } from 'lit-element'
 import { unsafeHTML } from 'lit-html/directives/unsafe-html.js'
 import { Converter } from 'showdown'
-import { styles } from '../../utils'
+import { styles, customElement } from '../../utils'
 import style from './markdown.scss'
 
 @customElement('e-markdown')

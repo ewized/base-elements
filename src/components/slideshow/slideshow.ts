@@ -1,5 +1,5 @@
-import { LitElement, html, customElement, property } from 'lit-element'
-import { styles } from '../../utils'
+import { LitElement, html, property } from 'lit-element'
+import { styles, customElement } from '../../utils'
 import style from './slideshow.scss'
 
 export const DEFAULT_DELAY = 0

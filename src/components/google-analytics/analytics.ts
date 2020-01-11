@@ -1,5 +1,5 @@
-import { LitElement, html, customElement } from 'lit-element'
-import { script, notNull } from '../../utils'
+import { LitElement, html } from 'lit-element'
+import { script, notNull, customElement } from '../../utils'
 
 declare global {
   interface Window {
