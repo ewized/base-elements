@@ -33,6 +33,13 @@ export default class GoogleAnalytics extends LitElement {
     super.connectedCallback()
     this.ga('create', this.property, 'auto')
     this.ga('send', 'pageview')
+    this.ga((tracker: any) => this.dispatchEvent(new CustomEvent('ga-callback', {
+      detail: {
+        tracker,
+      },
+      bubbles: true,
+      composed: true,
+    })))
   }
 
   render() {
