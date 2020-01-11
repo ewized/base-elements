@@ -67,7 +67,7 @@ span.wrapper {
         margin-#{$direction}: #{$margin};
         @include border-triangle(#{$class}, var(--tooltip-background), $arrow-size);
       }
-  
+
       // Tooltip
       > slot[name='tooltip'] {
         #{$direction}: 100%;
