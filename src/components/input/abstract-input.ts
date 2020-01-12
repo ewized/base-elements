@@ -1,4 +1,4 @@
-import { LitElement, html, property } from 'lit-element'
+import { LitElement, html, property, query } from 'lit-element'
 import { styles, notNull } from '../../utils'
 import style from './input.scss'
 
@@ -7,6 +7,7 @@ export default abstract class AbstractInput extends LitElement {
   // Identify the element as a form-associated custom element
   static formAssociated = true
   type: string | undefined
+  @query('input') $input!: HTMLInputElement
   @property() _value: string = this.getAttribute('value') ?? ''
 
   /** Is this a required field for a form */
@@ -22,10 +23,6 @@ export default abstract class AbstractInput extends LitElement {
     return this.label.toLowerCase().replace(' ', '-')
   }
 
-  get caption() {
-    return ''
-  }
-
   get value() {
     return this._value
   }
@@ -34,17 +31,32 @@ export default abstract class AbstractInput extends LitElement {
     this._value = value
   }
 
-  onFormData({ formData }: any) {
+  /** Defaults to normal input validity */
+  validate(input: HTMLInputElement): boolean {
+    return input.checkValidity()
+  }
+
+  /** Check the validation of the inputs before submitting */
+  onSubmit = (event: any) => {
+    if (!this.validate(this.$input)) {
+      this.$input.reportValidity()
+      event.preventDefault()
+    }
+  }
+
+  /** Append the form data */
+  onFormData = ({ formData }: any) => {
     formData.append(this.santizeLabel, this._value)
   }
 
-  onChange({ target }: any) {
+  onChange = ({ target }: any) => {
     this._value = target.value
   }
 
   formAssociatedCallback(form: HTMLFormElement) {
     // @ts-ignore
-    form.addEventListener('formdata', this.onFormData.bind(this))
+    form.addEventListener('formdata', this.onFormData)
+    form.addEventListener('submit', this.onSubmit)
   }
 
   formResetCallback() {
@@ -63,7 +75,6 @@ export default abstract class AbstractInput extends LitElement {
           .value=${this._value}
           @change=${this.onChange} />
       <label for=${this.santizeLabel}>${this.label}</label>
-      <span>${this.caption}</span>
     `
   }
 }

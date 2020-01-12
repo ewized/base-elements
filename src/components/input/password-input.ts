@@ -6,7 +6,6 @@ import AbstractInput from './abstract-input'
 export default class TextInput extends AbstractInput {
   type = 'password'
   @property() _type = notNull(this.type, 'type must be given in')
-  @query('.password') $input!: HTMLInputElement
 
   async onTogglePasswordVisiablity(event: any) {
     this._type = this._type === 'password' ? 'text' : 'password'
@@ -43,7 +42,6 @@ export default class TextInput extends AbstractInput {
           @click=${this.onTogglePasswordVisiablity}>
         ${this.passwordVisiablityText}
       </a>
-      <span>${this.caption}</span>
     `
   }
 }

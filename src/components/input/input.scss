@@ -5,6 +5,8 @@
   @extend %host-block;
   @include var(input-background, #fff);
   @include var(input-background-disabled, #f0f0f0);
+
+  vertical-align: top;
 }
 
 $top-padding: 20px;
@@ -14,7 +16,7 @@ $bottom-padding: 5px;
 $center: ($line-height + $top-padding + $bottom-padding) / 4;
 
 @mixin color-scheme($color, $caption: false) {
-  border-color: $color;
+  border-color: rgba($color, 0.4);
   + label {
     color: $color;
   }
@@ -27,7 +29,8 @@ $center: ($line-height + $top-padding + $bottom-padding) / 4;
 
 input {
   background: var(--input-background);
-  border: 1px solid #aaa;
+  border: 1px solid;
+  @include color-scheme(#666);
   padding: $top-padding $sides-padding;
   padding-bottom: $bottom-padding;
   font-size: 14px;
@@ -47,8 +50,16 @@ input {
     @include color-scheme(green);
   }
 
-  &:invalid {
+  &:not(:placeholder-shown):invalid, &:focus:invalid {
     @include color-scheme(red, true);
+  }
+
+  &:required {
+    + label::after {
+      content: '*';
+      font-size: small;
+      padding: 1px;
+    }
   }
 
   &:disabled {
@@ -81,7 +92,6 @@ label {
   position: absolute;
   cursor: text;
   padding: $center $sides-padding;
-  color: #666;
   transition: all 0.15s ease-in;
   font-size: 14px;
 }
@@ -90,7 +100,6 @@ label {
 span {
   display: block;
   font-size: 8px;
-  color: #999;
   margin-bottom: 5px;
 }
 
@@ -113,6 +122,7 @@ input.password {
     user-select: none;
     &:hover {
       visibility: visible;
+      text-decoration: underline;
     }
   }
   &:focus:not(:placeholder-shown) {
