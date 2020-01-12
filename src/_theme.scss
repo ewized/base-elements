@@ -26,3 +26,10 @@ $paper-shadow-color: #00000033;
   word-wrap: normal;
   overflow: auto;
 }
+
+%host-block {
+  overflow: hidden;
+  display: inline-block;
+  width: min-content;
+  position: relative;
+}

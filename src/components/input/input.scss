@@ -1,0 +1,135 @@
+@import "../../theme";
+@import "../../mixins";
+
+:host {
+  @extend %host-block;
+  @include var(input-background, #fff);
+  @include var(input-background-disabled, #f0f0f0);
+
+  vertical-align: top;
+}
+
+$top-padding: 20px;
+$sides-padding: 15px;
+$line-height: 18px;
+$bottom-padding: 5px;
+$center: ($line-height + $top-padding + $bottom-padding) / 4;
+
+@mixin color-scheme($color, $caption: false) {
+  border-color: rgba($color, 0.4);
+  + label {
+    color: $color;
+  }
+  @if $caption {
+    ~ span {
+      color: $color;
+    }
+  }
+}
+
+input {
+  background: var(--input-background);
+  border: 1px solid;
+  @include color-scheme(#666);
+  padding: $top-padding $sides-padding;
+  padding-bottom: $bottom-padding;
+  font-size: 14px;
+  line-height: $line-height;
+  min-width: 175px;
+
+  &::placeholder {
+    color: transparent;
+  }
+
+  &:focus {
+    outline: none;
+    @include color-scheme($text-primary-color);
+  }
+
+  &:not(:placeholder-shown):valid {
+    @include color-scheme(green);
+  }
+
+  &:not(:placeholder-shown):invalid, &:focus:invalid {
+    @include color-scheme(red, true);
+  }
+
+  &:required {
+    + label::after {
+      content: '*';
+      font-size: small;
+      padding: 1px;
+    }
+  }
+
+  &:disabled {
+    background: var(--input-background-disabled);
+    cursor: not-allowed;
+  }
+
+  &:-webkit-autofill {
+    -webkit-text-fill-color: rgba($text-primary-color, 0.9);
+    -webkit-box-shadow: 0 0 0 100vw rgba($text-primary-color, 0.1) inset;
+  }
+
+  // move label to top of input box
+  &:focus, &:not(:placeholder-shown) {
+    + label {
+      user-select: none;
+      pointer-events: none;
+      font-size: 10px;
+      padding-top: $bottom-padding;
+      padding-bottom: 0;
+      font-weight: bold;
+    }
+  }
+}
+
+// Label that acts as the placeholder
+label {
+  top: 0;
+  left: 0;
+  position: absolute;
+  cursor: text;
+  padding: $center $sides-padding;
+  transition: all 0.15s ease-in;
+  font-size: 14px;
+}
+
+// caption for input feild
+span {
+  display: block;
+  font-size: 8px;
+  margin-bottom: 5px;
+}
+
+// additional css for password visiablity button
+input.password {
+  min-width: 175px;
+  padding-right: 12px;
+  ~ a.password-visiablity {
+    text-align: right;
+    visibility: hidden;
+    top: 0;
+    right: 0;
+    position: absolute;
+    padding: #{$top-padding - 2} 5px 0 5px;
+    margin: 2px 0;
+    font-size: 12px;
+    width: 30px;
+    cursor: pointer;
+    font-variant: small-caps;
+    user-select: none;
+    &:hover {
+      visibility: visible;
+      text-decoration: underline;
+    }
+  }
+  &:focus:not(:placeholder-shown) {
+    min-width: 135px;
+    padding-right: 40px;
+    ~ a.password-visiablity {
+      visibility: visible;
+    }
+  }
+}
