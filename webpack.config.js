@@ -1,6 +1,7 @@
 const path = require('path')
 const fs = require('fs')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const CleanCSS = require('clean-css')
 
 const PUBLIC_PATH = path.resolve(__dirname, 'public')
 const BUILD_PATH = path.resolve(__dirname, 'build')
@@ -73,6 +74,8 @@ module.exports = {
         test: /\.scss$/,
         include: /src/,
         use: [
+          { loader: path.resolve(__dirname, 'lit-css-loader.js') },
+          { loader: 'extract-loader' },
           { loader: 'css-loader' },
           { loader: 'sass-loader' },
         ],

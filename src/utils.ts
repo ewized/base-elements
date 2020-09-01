@@ -9,7 +9,9 @@ export function styles(...styles: Array<any>) {
   // this is the equalivant of doing in the class
   // static styles = _styles(style)
   return (descriptor: any) => {
-    Object.defineProperty(descriptor, 'styles', { value: styles.map(style => style instanceof CSSResult ? style : _styles(style)) })
+    Object.defineProperty(descriptor, 'styles', {
+      value: styles.map(style => style instanceof CSSResult ? style : _styles(style)),
+    })
     // return {
     //   ...descriptor,
     //   elements: [ ...descriptor.elements, {
