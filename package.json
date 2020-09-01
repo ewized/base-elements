@@ -44,7 +44,7 @@
     "typescript": "^3.7.2",
     "webpack": "^4.44.1",
     "webpack-cli": "^3.3.9",
-    "webpack-dev-server": "^3.9.0"
+    "webpack-dev-server": "^3.11.0"
   },
   "scripts": {
     "test": "jest --no-cache --config jest.config.js ./src/",
