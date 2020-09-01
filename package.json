@@ -20,8 +20,10 @@
   "dependencies": {
     "@types/showdown": "^1.9.3",
     "code-prettify": "^0.1.0",
+    "extract-loader": "^5.1.0",
     "font-awesome": "^4.7.0",
     "lit-element": "^2.2.1",
+    "lit-scss-loader": "^1.0.1",
     "showdown": "^1.9.1"
   },
   "devDependencies": {

@@ -73,6 +73,8 @@ module.exports = {
         test: /\.scss$/,
         include: /src/,
         use: [
+          { loader: 'lit-scss-loader', options: { minify: true } },
+          { loader: 'extract-loader' },
           { loader: 'css-loader' },
           { loader: 'sass-loader' },
         ],
