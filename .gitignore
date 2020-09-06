@@ -5,7 +5,7 @@ build/
 /index.js
 /utils.js
 /theme.scss
-/fontawesome*
+/fa*
 /*.js*
 /*.d.ts*
 /*.scss
