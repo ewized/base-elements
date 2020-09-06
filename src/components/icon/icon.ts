@@ -11,24 +11,51 @@ export default class Icon extends LitElement {
   // Fix bug with icons https://github.com/mdn/interactive-examples/issues/887#issuecomment-528205273
   connectedCallback() {
     super.connectedCallback()
-    let fontFaceSheet = css`
+    const fontFaceSheet = css`
       @font-face {
-        font-family: "FontAwesome";
-        font-weight: normal;
+        font-family: 'Font Awesome 5 Free';
         font-style: normal;
-        src: url("${BASE_ELEMENTS_FONT_PREFIX}/fontawesome-webfont.eot");
-        src: url("${BASE_ELEMENTS_FONT_PREFIX}/fontawesome-webfont.eot?#iefix") format("embedded-opentype"),
-             url("${BASE_ELEMENTS_FONT_PREFIX}/fontawesome-webfont.woff2") format("woff2"),
-             url("${BASE_ELEMENTS_FONT_PREFIX}/fontawesome-webfont.woff") format("woff"),
-             url("${BASE_ELEMENTS_FONT_PREFIX}/fontawesome-webfont.ttf") format("truetype"),
-             url("${BASE_ELEMENTS_FONT_PREFIX}/fontawesome-webfont.svg#fontawesomeregular") format("svg");
+        font-weight: 900;
+        src: url('${BASE_ELEMENTS_FONT_PREFIX}/fa-solid-900.eot');
+        src: url('${BASE_ELEMENTS_FONT_PREFIX}/fa-solid-900.eot?#iefix') format('embedded-opentype'),
+        url('${BASE_ELEMENTS_FONT_PREFIX}/fa-solid-900.woff2') format('woff2'),
+        url('${BASE_ELEMENTS_FONT_PREFIX}/fa-solid-900.woff') format('woff'),
+        url('${BASE_ELEMENTS_FONT_PREFIX}/fa-solid-900.ttf') format('truetype'),
+        url('${BASE_ELEMENTS_FONT_PREFIX}/fa-solid-900.svg#fontawesome') format('svg');
+      }
+      @font-face {
+        font-family: 'Font Awesome 5 Free';
+        font-style: normal;
+        font-weight: 400;
+        src: url('${BASE_ELEMENTS_FONT_PREFIX}/fa-regular-400.eot');
+        src: url('${BASE_ELEMENTS_FONT_PREFIX}/fa-regular-400.eot?#iefix') format('embedded-opentype'),
+        url('${BASE_ELEMENTS_FONT_PREFIX}/fa-regular-400.woff2') format('woff2'),
+        url('${BASE_ELEMENTS_FONT_PREFIX}/fa-regular-400.woff') format('woff'),
+        url('${BASE_ELEMENTS_FONT_PREFIX}/fa-regular-400.ttf') format('truetype'),
+        url('${BASE_ELEMENTS_FONT_PREFIX}/fa-regular-400.svg#fontawesome') format('svg');
+      }
+      @font-face {
+        font-family: 'Font Awesome 5 Brands';
+        font-style: normal;
+        font-weight: 400;
+        src: url('${BASE_ELEMENTS_FONT_PREFIX}/fa-brands-400.eot');
+        src: url('${BASE_ELEMENTS_FONT_PREFIX}/fa-brands-400.eot?#iefix') format('embedded-opentype'),
+        url('${BASE_ELEMENTS_FONT_PREFIX}/fa-brands-400.woff2') format('woff2'),
+        url('${BASE_ELEMENTS_FONT_PREFIX}/fa-brands-400.woff') format('woff'),
+        url('${BASE_ELEMENTS_FONT_PREFIX}/fa-brands-400.ttf') format('truetype'),
+        url('${BASE_ELEMENTS_FONT_PREFIX}/fa-brands-400.svg#fontawesome') format('svg');
       }
     `.styleSheet
     // @ts-ignore
-    document.adoptedStyleSheets = [ ...document.adoptedStyleSheets, fontFaceSheet ]
+    document.adoptedStyleSheets = [...document.adoptedStyleSheets, fontFaceSheet]
+  }
+
+  /** Get the custom type of the icon */
+  get type() {
+    return this.getAttribute('type') || 'fas'
   }
 
   render() {
-    return html`<i class="fa fa-${this.textContent} ${this.hasAttribute('spin') ? 'fa-spin' : 'fa-static'}"></i>`
+    return html`<i class="${this.type} fa-${this.textContent} ${this.hasAttribute('spin') ? 'fa-spin' : 'fa-static'}"></i>`
   }
 }

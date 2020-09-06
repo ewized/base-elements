@@ -9,6 +9,7 @@ $social-colors:
   "linkedin" #0e76a8,
   "youtube" #cd201f,
   "twitch" #6441a5,
+  "tiktok" #010101,
   ;
 
 :host {
@@ -40,7 +41,7 @@ e-tooltip {
 
   .hovered {
     background-color: transparent;
-    
+
     &:hover a {
       color: var(--e-social-color);
     }

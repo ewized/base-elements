@@ -18,9 +18,9 @@
     "registry": "https://npm.pkg.github.com/"
   },
   "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.14.0",
     "@types/showdown": "^1.9.3",
     "code-prettify": "^0.1.0",
-    "font-awesome": "^4.7.0",
     "lit-element": "^2.2.1",
     "showdown": "^1.9.1"
   },
@@ -50,7 +50,7 @@
     "test": "jest --no-cache --config jest.config.js ./src/",
     "build": "webpack --mode production",
     "builddocs": "npm run build && npm run copypublic",
-    "start": "webpack-dev-server --watch --mode development",
+    "start": "webpack-dev-server --watch --mode development --host 0.0.0.0",
     "lint": "eslint src/**.ts",
     "copypublic": "cp -r public/ build/",
     "package": "npm run build && cp -R ./build/* . && cp -R ./lib/* .",
